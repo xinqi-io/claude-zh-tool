@@ -340,7 +340,7 @@ const HELP = `claude-zh — Claude Code CLI 中文化工具
 
 claude 升级后重跑 \`claude-zh patch\` 即可（工具会从 .en.bak 抽净英文重新打补丁）。
 
-详见: https://github.com/lixinqi0421-lab/claude-zh-tool
+详见: https://github.com/xinqi-io/claude-zh-tool
 `;
 
 const cmd = process.argv[2];
