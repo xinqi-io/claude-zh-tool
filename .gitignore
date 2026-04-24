@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+
+# 工作产物
+claude_bundle.js
+claude_bundle.zh.js
+entries.json
+entries_new.json
+extract_meta.json
+
+# IDE
+.vscode/
+.idea/

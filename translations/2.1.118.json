@@ -1,0 +1,3056 @@
+{
+  "meta": {
+    "bundle_size": 13239951,
+    "bundle_md5": "4fe92ba0670e7c031af332d25f321018",
+    "generated_at": "2026-04-23T12:06:47.015Z",
+    "entry_count": 324,
+    "translated_count": 324
+  },
+  "entries": [
+    {
+      "id": "cli.programDescription:top",
+      "kind": "cli.programDescription",
+      "start": 13173006,
+      "end": 13173105,
+      "en": "Claude Code - starts an interactive session by default, use -p/--print for non-interactive output",
+      "zh": "Claude Code —— 默认开启交互式会话；用 -p/--print 切到非交互输出"
+    },
+    {
+      "id": "option.help:-d2e__--debug-to-stderr",
+      "kind": "option.help",
+      "flag": "-d2e, --debug-to-stderr",
+      "start": 13173379,
+      "end": 13173423,
+      "en": "(deprecated) Enable debug mode (to stderr)",
+      "zh": "(已废弃) 启用调试模式（输出到 stderr）"
+    },
+    {
+      "id": "option.help:--enable-auto-mode",
+      "kind": "option.help",
+      "flag": "--enable-auto-mode",
+      "start": 13216777,
+      "end": 13216811,
+      "en": "(deprecated) Opt in to auto mode",
+      "zh": "(已废弃) 启用 auto 模式"
+    },
+    {
+      "id": "option.help:--mcp-debug",
+      "kind": "option.help",
+      "flag": "--mcp-debug",
+      "start": 13175787,
+      "end": 13175870,
+      "en": "[DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)",
+      "zh": "[已废弃，请改用 --debug] 启用 MCP 调试模式（显示 MCP 服务器错误）"
+    },
+    {
+      "id": "option.help:--max-thinking-tokens__tokens_",
+      "kind": "option.help",
+      "flag": "--max-thinking-tokens <tokens>",
+      "start": 13176562,
+      "end": 13176677,
+      "en": "[DEPRECATED. Use --thinking instead for newer models] Maximum number of thinking tokens (only works with --print)",
+      "zh": "[已废弃。新模型请改用 --thinking] 思考 token 的最大数量（仅配合 --print 使用）"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#9",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13228408,
+      "end": 13228463,
+      "en": "`Installation scope: ${pXH.join(\", \")} (default: user)`",
+      "zh": "`安装范围：${pXH.join(\", \")}（默认：user）`",
+      "isTemplate": true
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#7",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13227546,
+      "end": 13227607,
+      "en": "`Installation scope: ${UG.join(\", \")} (default: auto-detect)`",
+      "zh": "`安装范围：${UG.join(\", \")}（默认：自动检测）`",
+      "isTemplate": true
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#8",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13227990,
+      "end": 13228051,
+      "en": "`Installation scope: ${UG.join(\", \")} (default: auto-detect)`",
+      "zh": "`安装范围：${UG.join(\", \")}（默认：自动检测）`",
+      "isTemplate": true
+    },
+    {
+      "id": "option.help:--agents__json_",
+      "kind": "option.help",
+      "flag": "--agents <json>",
+      "start": 13183411,
+      "end": 13183539,
+      "en": "`JSON object defining custom agents (e.g. '{\"reviewer\": {\"description\": \"Reviews code\", \"prompt\": \"You are a code reviewer\"}}')`",
+      "zh": "`定义自定义 Agent 的 JSON 对象（示例：'{\"reviewer\": {\"description\": \"Reviews code\", \"prompt\": \"You are a code reviewer\"}}'）`",
+      "isTemplate": true
+    },
+    {
+      "id": "option.help:--add-dir__directories____",
+      "kind": "option.help",
+      "flag": "--add-dir <directories...>",
+      "start": 13182886,
+      "end": 13182934,
+      "en": "Additional directories to allow tool access to",
+      "zh": "额外允许工具访问的目录"
+    },
+    {
+      "id": "option.help:--agent__agent_",
+      "kind": "option.help",
+      "flag": "--agent <agent>",
+      "start": 13182086,
+      "end": 13182149,
+      "en": "Agent for the current session. Overrides the 'agent' setting.",
+      "zh": "当前会话使用的 Agent，会覆盖 'agent' 设置。"
+    },
+    {
+      "id": "option.help:--rc__name_",
+      "kind": "option.help",
+      "flag": "--rc [name]",
+      "start": 13218707,
+      "end": 13218735,
+      "en": "Alias for --remote-control",
+      "zh": "--remote-control 的别名"
+    },
+    {
+      "id": "option.help:--task-budget__tokens_",
+      "kind": "option.help",
+      "flag": "--task-budget <tokens>",
+      "start": 13177234,
+      "end": 13177294,
+      "en": "API-side task budget in tokens (output_config.task_budget)",
+      "zh": "API 侧任务 token 预算（output_config.task_budget）"
+    },
+    {
+      "id": "option.help:--append-system-prompt__prompt_",
+      "kind": "option.help",
+      "flag": "--append-system-prompt <prompt>",
+      "start": 13178721,
+      "end": 13178774,
+      "en": "Append a system prompt to the default system prompt",
+      "zh": "在默认系统提示之后追加一段系统提示"
+    },
+    {
+      "id": "option.help:--ide",
+      "kind": "option.help",
+      "flag": "--ide",
+      "start": 13182951,
+      "end": 13183030,
+      "en": "Automatically connect to IDE on startup if exactly one valid IDE is available",
+      "zh": "启动时若恰好存在一个可用 IDE，则自动连接"
+    },
+    {
+      "id": "option.help:--prefill-b64__b64_",
+      "kind": "option.help",
+      "flag": "--prefill-b64 <b64>",
+      "start": 13180631,
+      "end": 13180702,
+      "en": "Base64url-encoded --prefill value (deep-link shell-safe launch paths)",
+      "zh": "Base64url 编码的 --prefill 值（用于深链里 shell 安全的启动路径）"
+    },
+    {
+      "id": "option.help:--deep-link-cwd-b64__b64_",
+      "kind": "option.help",
+      "flag": "--deep-link-cwd-b64 <b64>",
+      "start": 13180821,
+      "end": 13180894,
+      "en": "Base64url-encoded working directory (deep-link shell-safe launch paths)",
+      "zh": "Base64url 编码的工作目录（用于深链里 shell 安全的启动路径）"
+    },
+    {
+      "id": "option.help:--betas__betas____",
+      "kind": "option.help",
+      "flag": "--betas <betas...>",
+      "start": 13182179,
+      "end": 13182241,
+      "en": "Beta headers to include in API requests (API key users only)",
+      "zh": "在 API 请求里携带的 Beta 请求头（仅限 API key 用户）"
+    },
+    {
+      "id": "option.help:--dangerously-skip-permissions",
+      "kind": "option.help",
+      "flag": "--dangerously-skip-permissions",
+      "start": 13175919,
+      "end": 13176006,
+      "en": "Bypass all permission checks. Recommended only for sandboxes with no internet access.",
+      "zh": "跳过所有权限检查。仅推荐在无网络沙箱中使用。"
+    },
+    {
+      "id": "option.help:--client-id__id_",
+      "kind": "option.help",
+      "flag": "--client-id <id>",
+      "start": 12958547,
+      "end": 12958583,
+      "en": "Claude Code's client_id at the IdP",
+      "zh": "Claude Code 在 IdP 上注册的 client_id"
+    },
+    {
+      "id": "option.help:--allowedTools__--allowed-tools__tools____",
+      "kind": "option.help",
+      "flag": "--allowedTools, --allowed-tools <tools...>",
+      "start": 13177792,
+      "end": 13177872,
+      "en": "Comma or space-separated list of tool names to allow (e.g. \"Bash(git *) Edit\")",
+      "zh": "以逗号或空格分隔的允许工具列表（如 \"Bash(git *) Edit\"）"
+    },
+    {
+      "id": "option.help:--disallowedTools__--disallowed-tools__tools____",
+      "kind": "option.help",
+      "flag": "--disallowedTools, --disallowed-tools <tools...>",
+      "start": 13178126,
+      "end": 13178205,
+      "en": "Comma or space-separated list of tool names to deny (e.g. \"Bash(git *) Edit\")",
+      "zh": "以逗号或空格分隔的禁用工具列表（如 \"Bash(git *) Edit\"）"
+    },
+    {
+      "id": "option.help:--setting-sources__sources_",
+      "kind": "option.help",
+      "flag": "--setting-sources <sources>",
+      "start": 13183578,
+      "end": 13183651,
+      "en": "Comma-separated list of setting sources to load (user, project, local).",
+      "zh": "要加载的设置来源列表（逗号分隔：user、project、local）。"
+    },
+    {
+      "id": "option.help:--setting-sources__sources_#2",
+      "kind": "option.help",
+      "flag": "--setting-sources <sources>",
+      "start": 13228986,
+      "end": 13229059,
+      "en": "Comma-separated list of setting sources to load (user, project, local).",
+      "zh": "要加载的设置来源列表（逗号分隔：user、project、local）。"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 12954555,
+      "end": 12954602,
+      "en": "Configuration scope (local, user, or project)",
+      "zh": "配置范围（local、user 或 project）"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#3",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13221017,
+      "end": 13221064,
+      "en": "Configuration scope (local, user, or project)",
+      "zh": "配置范围（local、user 或 project）"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#4",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13221527,
+      "end": 13221574,
+      "en": "Configuration scope (local, user, or project)",
+      "zh": "配置范围（local、user 或 project）"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#2",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13219731,
+      "end": 13219840,
+      "en": "Configuration scope (local, user, or project) - if not specified, removes from whichever scope it exists in",
+      "zh": "配置范围（local、user 或 project）—— 未指定时从存在该项的任一范围移除"
+    },
+    {
+      "id": "option.help:-c__--continue",
+      "kind": "option.help",
+      "flag": "-c, --continue",
+      "start": 13179701,
+      "end": 13179765,
+      "en": "Continue the most recent conversation in the current directory",
+      "zh": "继续当前目录最近一次的对话"
+    },
+    {
+      "id": "option.help:-w__--worktree__name_",
+      "kind": "option.help",
+      "flag": "-w, --worktree [name]",
+      "start": 13216358,
+      "end": 13216430,
+      "en": "Create a new git worktree for this session (optionally specify a name)",
+      "zh": "为当前会话新建 git worktree（可选指定名称）"
+    },
+    {
+      "id": "option.help:--remote__description_session_id_url_",
+      "kind": "option.help",
+      "flag": "--remote [description|session_id|url]",
+      "start": 13218384,
+      "end": 13218502,
+      "en": "Create a remote session with the given description, or attach to an existing one by session ID or claude.ai/code URL",
+      "zh": "用给定描述创建远程会话，或通过 session ID 或 claude.ai/code URL 连接到已有会话"
+    },
+    {
+      "id": "option.help:--tmux",
+      "kind": "option.help",
+      "flag": "--tmux",
+      "start": 13216450,
+      "end": 13216595,
+      "en": "Create a tmux session for the worktree (requires --worktree). Uses iTerm2 native panes when available; use --tmux=classic for traditional tmux.",
+      "zh": "为 worktree 创建 tmux 会话（需配合 --worktree）。条件满足时用 iTerm2 原生分栏；传统 tmux 用 --tmux=classic。"
+    },
+    {
+      "id": "option.help:--agent-type__type_",
+      "kind": "option.help",
+      "flag": "--agent-type <type>",
+      "start": 13218018,
+      "end": 13218055,
+      "en": "Custom agent type for this teammate",
+      "zh": "该队友的自定义 Agent 类型"
+    },
+    {
+      "id": "option.help:--plan-mode-instructions__instructions_",
+      "kind": "option.help",
+      "flag": "--plan-mode-instructions <instructions>",
+      "start": 13179012,
+      "end": 13179216,
+      "en": "Custom workflow body for plan mode. Replaces the default code-implementation phases in the plan-mode system reminder; the read-only enforcement preamble and ExitPlanMode protocol footer are always kept.",
+      "zh": "计划模式的自定义流程正文。替换 plan-mode 系统提醒中默认的代码实现阶段；只读约束前言和 ExitPlanMode 协议结尾始终保留。"
+    },
+    {
+      "id": "option.help:-a__--all",
+      "kind": "option.help",
+      "flag": "-a, --all",
+      "start": 13227930,
+      "end": 13227959,
+      "en": "Disable all enabled plugins",
+      "zh": "禁用所有已启用的插件"
+    },
+    {
+      "id": "option.help:--disable-slash-commands",
+      "kind": "option.help",
+      "flag": "--disable-slash-commands",
+      "start": 13183834,
+      "end": 13183854,
+      "en": "Disable all skills",
+      "zh": "禁用所有技能"
+    },
+    {
+      "id": "option.help:--no-chrome",
+      "kind": "option.help",
+      "flag": "--no-chrome",
+      "start": 13183941,
+      "end": 13183979,
+      "en": "Disable Claude in Chrome integration",
+      "zh": "禁用 Claude in Chrome 集成"
+    },
+    {
+      "id": "option.help:--no-session-persistence",
+      "kind": "option.help",
+      "flag": "--no-session-persistence",
+      "start": 13181146,
+      "end": 13181260,
+      "en": "Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)",
+      "zh": "禁用会话持久化 —— 会话不写盘也无法恢复（仅在 --print 下生效）"
+    },
+    {
+      "id": "option.help:--effort__level_",
+      "kind": "option.help",
+      "flag": "--effort <level>",
+      "start": 13181829,
+      "end": 13181899,
+      "en": "Effort level for the current session (low, medium, high, xhigh, max)",
+      "zh": "当前会话的 effort 等级（low、medium、high、xhigh、max）"
+    },
+    {
+      "id": "option.help:--session-mirror",
+      "kind": "option.help",
+      "flag": "--session-mirror",
+      "start": 13175458,
+      "end": 13175571,
+      "en": "Emit transcript_mirror frames on stdout (SDK-internal; set by ProcessTransport when sessionStore is configured)",
+      "zh": "向 stdout 输出 transcript_mirror 帧（仅 SDK 内部使用；配置了 sessionStore 时由 ProcessTransport 设置）"
+    },
+    {
+      "id": "option.help:--enable-auth-status",
+      "kind": "option.help",
+      "flag": "--enable-auth-status",
+      "start": 13177673,
+      "end": 13177714,
+      "en": "Enable auth status messages in SDK mode",
+      "zh": "在 SDK 模式下启用鉴权状态消息"
+    },
+    {
+      "id": "option.help:--fallback-model__model_",
+      "kind": "option.help",
+      "flag": "--fallback-model <model>",
+      "start": 13182277,
+      "end": 13182382,
+      "en": "Enable automatic fallback to specified model when default model is overloaded (only works with --print)",
+      "zh": "默认模型过载时自动回退到指定模型（仅在 --print 下生效）"
+    },
+    {
+      "id": "option.help:--allow-dangerously-skip-permissions",
+      "kind": "option.help",
+      "flag": "--allow-dangerously-skip-permissions",
+      "start": 13176061,
+      "end": 13176208,
+      "en": "Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.",
+      "zh": "允许使用“跳过所有权限检查”选项，但默认不启用。仅推荐在无网络沙箱中使用。"
+    },
+    {
+      "id": "option.help:--chrome",
+      "kind": "option.help",
+      "flag": "--chrome",
+      "start": 13183881,
+      "end": 13183918,
+      "en": "Enable Claude in Chrome integration",
+      "zh": "启用 Claude in Chrome 集成"
+    },
+    {
+      "id": "option.help:-d__--debug",
+      "kind": "option.help",
+      "flag": "-d, --debug",
+      "start": 13219382,
+      "end": 13219401,
+      "en": "Enable debug mode",
+      "zh": "启用调试模式"
+    },
+    {
+      "id": "option.help:-d__--debug__filter_",
+      "kind": "option.help",
+      "flag": "-d, --debug [filter]",
+      "start": 13173231,
+      "end": 13173318,
+      "en": "Enable debug mode with optional category filtering (e.g., \"api,hooks\" or \"!1p,!file\")",
+      "zh": "启用调试模式，可选按分类过滤（如 \"api,hooks\" 或 \"!1p,!file\"）"
+    },
+    {
+      "id": "option.help:--brief",
+      "kind": "option.help",
+      "flag": "--brief",
+      "start": 13216854,
+      "end": 13216915,
+      "en": "Enable SendUserMessage tool for agent-to-user communication",
+      "zh": "启用 SendUserMessage 工具，用于 Agent 向用户通信"
+    },
+    {
+      "id": "option.help:--advisor__model_",
+      "kind": "option.help",
+      "flag": "--advisor <model>",
+      "start": 13216641,
+      "end": 13216723,
+      "en": "Enable the server-side advisor tool with the specified model (alias or full ID).",
+      "zh": "启用服务端的 Advisor 工具，使用指定模型（别名或完整 ID）。"
+    },
+    {
+      "id": "option.help:--xaa",
+      "kind": "option.help",
+      "flag": "--xaa",
+      "start": 12955271,
+      "end": 12955422,
+      "en": "Enable XAA (SEP-990) for this server. Requires 'claude mcp xaa setup' first. Also requires --client-id and --client-secret (for the MCP server's AS).",
+      "zh": "为该服务器启用 XAA (SEP-990)。需要先执行 'claude mcp xaa setup'。同时需要 --client-id 和 --client-secret（用于 MCP 服务器的 AS）。"
+    },
+    {
+      "id": "option.help:--deep-link-last-fetch__ms_",
+      "kind": "option.help",
+      "flag": "--deep-link-last-fetch <ms>",
+      "start": 13180438,
+      "end": 13180509,
+      "en": "FETCH_HEAD mtime in epoch ms, precomputed by the deep link trampoline",
+      "zh": "FETCH_HEAD 的 mtime（Unix 毫秒），由深链 trampoline 预计算"
+    },
+    {
+      "id": "option.help:--file__specs____",
+      "kind": "option.help",
+      "flag": "--file <specs...>",
+      "start": 13184008,
+      "end": 13184127,
+      "en": "File resources to download at startup. Format: file_id:relative_path (e.g., --file file_abc:doc.txt file_def:img.png)",
+      "zh": "启动时下载的文件资源。格式 file_id:相对路径（如 --file file_abc:doc.txt file_def:img.png）"
+    },
+    {
+      "id": "option.help:--callback-port__port_#2",
+      "kind": "option.help",
+      "flag": "--callback-port <port>",
+      "start": 12958707,
+      "end": 12958793,
+      "en": "Fixed loopback callback port (only if IdP does not honor RFC 8252 port-any matching)",
+      "zh": "固定回环回调端口（仅在 IdP 不支持 RFC 8252 任意端口匹配时需要）"
+    },
+    {
+      "id": "option.help:--callback-port__port_",
+      "kind": "option.help",
+      "flag": "--callback-port <port>",
+      "start": 12955108,
+      "end": 12955192,
+      "en": "Fixed port for OAuth callback (for servers requiring pre-registered redirect URIs)",
+      "zh": "OAuth 回调使用的固定端口（适用于需要预注册回调 URI 的服务器）"
+    },
+    {
+      "id": "option.help:--force#2",
+      "kind": "option.help",
+      "flag": "--force",
+      "start": 13231441,
+      "end": 13231487,
+      "en": "Force installation even if already installed",
+      "zh": "即使已安装也强制安装"
+    },
+    {
+      "id": "option.help:--sso",
+      "kind": "option.help",
+      "flag": "--sso",
+      "start": 13222282,
+      "end": 13222304,
+      "en": "Force SSO login flow",
+      "zh": "强制走 SSO 登录流程"
+    },
+    {
+      "id": "option.help:--thinking-display__display_",
+      "kind": "option.help",
+      "flag": "--thinking-display <display>",
+      "start": 13176418,
+      "end": 13176464,
+      "en": "How thinking content appears in the response",
+      "zh": "思考内容在响应中的显示方式"
+    },
+    {
+      "id": "option.help:--teammate-mode__mode_",
+      "kind": "option.help",
+      "flag": "--teammate-mode <mode>",
+      "start": 13217868,
+      "end": 13217925,
+      "en": "How to spawn teammates: \"tmux\", \"in-process\", or \"auto\"",
+      "zh": "队友的启动方式：\"tmux\"、\"in-process\" 或 \"auto\""
+    },
+    {
+      "id": "option.help:--issuer__url_",
+      "kind": "option.help",
+      "flag": "--issuer <url>",
+      "start": 12958478,
+      "end": 12958511,
+      "en": "IdP issuer URL (OIDC discovery)",
+      "zh": "IdP issuer URL（OIDC discovery）"
+    },
+    {
+      "id": "option.help:--force",
+      "kind": "option.help",
+      "flag": "--force",
+      "start": 12960252,
+      "end": 12960328,
+      "en": "Ignore any cached id_token and re-login (useful after IdP-side revocation)",
+      "zh": "忽略缓存的 id_token 重新登录（IdP 端撤销凭证后有用）"
+    },
+    {
+      "id": "option.help:--include-hook-events",
+      "kind": "option.help",
+      "flag": "--include-hook-events",
+      "start": 13175161,
+      "end": 13175263,
+      "en": "Include all hook lifecycle events in the output stream (only works with --output-format=stream-json)",
+      "zh": "在输出流中包含所有 hook 生命周期事件（仅在 --output-format=stream-json 下生效）"
+    },
+    {
+      "id": "option.help:--available",
+      "kind": "option.help",
+      "flag": "--available",
+      "start": 13224550,
+      "end": 13224613,
+      "en": "Include available plugins from marketplaces (requires --json)",
+      "zh": "包含市场中可用的插件（需配合 --json）"
+    },
+    {
+      "id": "option.help:--include-partial-messages",
+      "kind": "option.help",
+      "flag": "--include-partial-messages",
+      "start": 13175308,
+      "end": 13175413,
+      "en": "Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)",
+      "zh": "实时输出消息分片（仅在 --print 且 --output-format=stream-json 下生效）"
+    },
+    {
+      "id": "option.help:--input-format__format_",
+      "kind": "option.help",
+      "flag": "--input-format <format>",
+      "start": 13175628,
+      "end": 13175731,
+      "en": "Input format (only works with --print): \"text\" (default), or \"stream-json\" (realtime streaming input)",
+      "zh": "输入格式（仅配合 --print 使用）：\"text\"（默认）或 \"stream-json\"（实时流式输入）"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#5",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13226667,
+      "end": 13226712,
+      "en": "Installation scope: user, project, or local",
+      "zh": "安装范围：user、project 或 local"
+    },
+    {
+      "id": "option.help:--json-schema__schema_",
+      "kind": "option.help",
+      "flag": "--json-schema <schema>",
+      "start": 13174975,
+      "end": 13175109,
+      "en": "JSON Schema for structured output validation. Example: {\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}",
+      "zh": "用于结构化输出校验的 JSON Schema。示例：{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}"
+    },
+    {
+      "id": "option.help:--sparse__paths____",
+      "kind": "option.help",
+      "flag": "--sparse <paths...>",
+      "start": 13225076,
+      "end": 13225198,
+      "en": "Limit checkout to specific directories via git sparse-checkout (for monorepos). Example: --sparse .claude-plugin plugins",
+      "zh": "用 git sparse-checkout 限定 checkout 目录（适合 monorepo）。例：--sparse .claude-plugin plugins"
+    },
+    {
+      "id": "option.help:--dangerously-load-development-channels__servers____",
+      "kind": "option.help",
+      "flag": "--dangerously-load-development-channels <servers...>",
+      "start": 13217167,
+      "end": 13217296,
+      "en": "Load channel servers not on the approved allowlist. For local channel development only. Shows a confirmation dialog at startup.",
+      "zh": "加载不在允许列表上的 channel 服务器。仅用于本地 channel 开发。启动时会显示确认对话框。"
+    },
+    {
+      "id": "option.help:--mcp-config__configs____",
+      "kind": "option.help",
+      "flag": "--mcp-config <configs...>",
+      "start": 13178242,
+      "end": 13178305,
+      "en": "Load MCP servers from JSON files or strings (space-separated)",
+      "zh": "从 JSON 文件或字符串加载 MCP 服务器（空格分隔）"
+    },
+    {
+      "id": "option.help:--plugin-dir__path_",
+      "kind": "option.help",
+      "flag": "--plugin-dir <path>",
+      "start": 13183682,
+      "end": 13183779,
+      "en": "Load plugins from a directory for this session only (repeatable: --plugin-dir A --plugin-dir B)",
+      "zh": "仅为当前会话从目录加载插件（可重复：--plugin-dir A --plugin-dir B）"
+    },
+    {
+      "id": "option.help:--max-budget-usd__amount_",
+      "kind": "option.help",
+      "flag": "--max-budget-usd <amount>",
+      "start": 13176984,
+      "end": 13177055,
+      "en": "Maximum dollar amount to spend on API calls (only works with --print)",
+      "zh": "API 调用最多花费的美元金额（仅配合 --print 使用）"
+    },
+    {
+      "id": "option.help:--max-turns__turns_",
+      "kind": "option.help",
+      "flag": "--max-turns <turns>",
+      "start": 13176748,
+      "end": 13176907,
+      "en": "Maximum number of agentic turns in non-interactive mode. This will early exit the conversation after the specified number of turns. (only works with --print)",
+      "zh": "非交互模式下 Agent 回合的最大数量。到达指定回合数会提前退出会话。（仅配合 --print 使用）"
+    },
+    {
+      "id": "option.help:--channels__servers____",
+      "kind": "option.help",
+      "flag": "--channels <servers...>",
+      "start": 13216963,
+      "end": 13217079,
+      "en": "MCP servers whose channel notifications (inbound push) should register this session. Space-separated server names.",
+      "zh": "把当前会话注册到这些 MCP 服务器，用于接收它们的 channel 推送通知。服务器名用空格分隔。"
+    },
+    {
+      "id": "option.help:--permission-prompt-tool__tool_",
+      "kind": "option.help",
+      "flag": "--permission-prompt-tool <tool>",
+      "start": 13178358,
+      "end": 13178424,
+      "en": "MCP tool to use for permission prompts (only works with --print)",
+      "zh": "用于权限提示的 MCP 工具（仅配合 --print 使用）"
+    },
+    {
+      "id": "option.help:--bare",
+      "kind": "option.help",
+      "flag": "--bare",
+      "start": 13173876,
+      "end": 13174424,
+      "en": "Minimal mode: skip hooks, LSP, plugin sync, attribution, auto-memory, background prefetches, keychain reads, and CLAUDE.md auto-discovery. Sets CLAUDE_CODE_SIMPLE=1. Anthropic auth is strictly ANTHROPIC_API_KEY or apiKeyHelper via --settings (OAuth and keychain are never read). 3P providers (Bedrock/Vertex/Foundry) use their own credentials. Skills still resolve via /skill-name. Explicitly provide context via: --system-prompt[-file], --append-system-prompt[-file], --add-dir (CLAUDE.md dirs), --mcp-config, --settings, --agents, --plugin-dir.",
+      "zh": "极简模式：跳过 hooks、LSP、插件同步、归因、自动记忆、后台预取、钥匙串读取以及 CLAUDE.md 自动发现。设置 CLAUDE_CODE_SIMPLE=1。Anthropic 鉴权仅接受 ANTHROPIC_API_KEY 或 --settings 里的 apiKeyHelper（从不读取 OAuth 或钥匙串）。第三方供应商（Bedrock/Vertex/Foundry）使用各自凭证。skill 仍可通过 /skill-name 解析。请显式提供上下文：--system-prompt[-file]、--append-system-prompt[-file]、--add-dir（CLAUDE.md 目录）、--mcp-config、--settings、--agents、--plugin-dir。"
+    },
+    {
+      "id": "option.help:--model__model_",
+      "kind": "option.help",
+      "flag": "--model <model>",
+      "start": 13181644,
+      "end": 13181791,
+      "en": "Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-6').",
+      "zh": "当前会话使用的模型。可填最新模型别名（如 'sonnet'、'opus'），或完整模型名（如 'claude-sonnet-4-6'）。"
+    },
+    {
+      "id": "option.help:--exclude-dynamic-system-prompt-sections",
+      "kind": "option.help",
+      "flag": "--exclude-dynamic-system-prompt-sections",
+      "start": 13179308,
+      "end": 13179545,
+      "en": "Move per-machine sections (cwd, env info, memory paths, git status) from the system prompt into the first user message. Improves cross-user prompt-cache reuse. Only applies with the default system prompt (ignored with --system-prompt).",
+      "zh": "把系统提示中与本机相关的片段（cwd、环境信息、记忆路径、git status）移到用户第一条消息里。提高跨用户 prompt 缓存的复用率。仅在使用默认系统提示时生效（设置 --system-prompt 时忽略）。"
+    },
+    {
+      "id": "option.help:--client-id__clientId_",
+      "kind": "option.help",
+      "flag": "--client-id <clientId>",
+      "start": 12954942,
+      "end": 12954980,
+      "en": "OAuth client ID for HTTP/SSE servers",
+      "zh": "HTTP/SSE 服务器使用的 OAuth 客户端 ID"
+    },
+    {
+      "id": "option.help:--strict-mcp-config",
+      "kind": "option.help",
+      "flag": "--strict-mcp-config",
+      "start": 13183068,
+      "end": 13183147,
+      "en": "Only use MCP servers from --mcp-config, ignoring all other MCP configurations",
+      "zh": "只使用 --mcp-config 指定的 MCP 服务器，忽略其它 MCP 配置"
+    },
+    {
+      "id": "option.help:--text",
+      "kind": "option.help",
+      "flag": "--text",
+      "start": 13222746,
+      "end": 13222777,
+      "en": "Output as human-readable text",
+      "zh": "以便于阅读的文本形式输出"
+    },
+    {
+      "id": "option.help:--json#2",
+      "kind": "option.help",
+      "flag": "--json",
+      "start": 13224511,
+      "end": 13224527,
+      "en": "Output as JSON",
+      "zh": "以 JSON 格式输出"
+    },
+    {
+      "id": "option.help:--json#3",
+      "kind": "option.help",
+      "flag": "--json",
+      "start": 13225580,
+      "end": 13225596,
+      "en": "Output as JSON",
+      "zh": "以 JSON 格式输出"
+    },
+    {
+      "id": "option.help:--json",
+      "kind": "option.help",
+      "flag": "--json",
+      "start": 13222702,
+      "end": 13222728,
+      "en": "Output as JSON (default)",
+      "zh": "以 JSON 格式输出（默认）"
+    },
+    {
+      "id": "option.help:--output-format__format_",
+      "kind": "option.help",
+      "flag": "--output-format <format>",
+      "start": 13174769,
+      "end": 13174891,
+      "en": "Output format (only works with --print): \"text\" (default), \"json\" (single result), or \"stream-json\" (realtime streaming)",
+      "zh": "输出格式（仅配合 --print 使用）：\"text\"（默认）、\"json\"（一次性结果）或 \"stream-json\"（实时流式输出）"
+    },
+    {
+      "id": "option.help:--verbose",
+      "kind": "option.help",
+      "flag": "--verbose",
+      "start": 13173607,
+      "end": 13173650,
+      "en": "Override verbose mode setting from config",
+      "zh": "覆盖配置文件中的 verbose 模式设置"
+    },
+    {
+      "id": "option.help:--verbose#2",
+      "kind": "option.help",
+      "flag": "--verbose",
+      "start": 13219429,
+      "end": 13219472,
+      "en": "Override verbose mode setting from config",
+      "zh": "覆盖配置文件中的 verbose 模式设置"
+    },
+    {
+      "id": "option.help:--model__model_#2",
+      "kind": "option.help",
+      "flag": "--model <model>",
+      "start": 13230143,
+      "end": 13230173,
+      "en": "Override which model is used",
+      "zh": "覆盖当前使用的模型"
+    },
+    {
+      "id": "option.help:--parent-session-id__id_",
+      "kind": "option.help",
+      "flag": "--parent-session-id <id>",
+      "start": 13217765,
+      "end": 13217810,
+      "en": "Parent session ID for analytics correlation",
+      "zh": "用于埋点关联的父会话 ID"
+    },
+    {
+      "id": "option.help:--settings__file-or-json_",
+      "kind": "option.help",
+      "flag": "--settings <file-or-json>",
+      "start": 13182636,
+      "end": 13182716,
+      "en": "Path to a settings JSON file or a JSON string to load additional settings from",
+      "zh": "用于加载额外设置的 JSON 文件路径或 JSON 字符串"
+    },
+    {
+      "id": "option.help:--permission-mode__mode_",
+      "kind": "option.help",
+      "flag": "--permission-mode <mode>",
+      "start": 13179604,
+      "end": 13179644,
+      "en": "Permission mode to use for the session",
+      "zh": "当前会话使用的权限模式"
+    },
+    {
+      "id": "option.help:--managed-settings__json_",
+      "kind": "option.help",
+      "flag": "--managed-settings <json>",
+      "start": 13182763,
+      "end": 13182836,
+      "en": "Policy-tier settings JSON from a spawning parent process (SDK use only)",
+      "zh": "来自父进程的 policy 层 settings JSON（仅 SDK 使用）"
+    },
+    {
+      "id": "option.help:--prefill__text_",
+      "kind": "option.help",
+      "flag": "--prefill <text>",
+      "start": 13180083,
+      "end": 13180142,
+      "en": "Pre-fill the prompt input with text without submitting it",
+      "zh": "将指定文本预填到 prompt 输入框，但不提交"
+    },
+    {
+      "id": "option.help:--email__email_",
+      "kind": "option.help",
+      "flag": "--email <email>",
+      "start": 13222219,
+      "end": 13222265,
+      "en": "Pre-populate email address on the login page",
+      "zh": "在登录页预填邮箱地址"
+    },
+    {
+      "id": "option.help:--remote-control-session-name-prefix__prefix_",
+      "kind": "option.help",
+      "flag": "--remote-control-session-name-prefix <prefix>",
+      "start": 13218828,
+      "end": 13218904,
+      "en": "Prefix for auto-generated Remote Control session names (default: hostname)",
+      "zh": "Remote Control 自动生成会话名的前缀（默认：主机名）"
+    },
+    {
+      "id": "option.help:--keep-data",
+      "kind": "option.help",
+      "flag": "--keep-data",
+      "start": 13227148,
+      "end": 13227228,
+      "en": "Preserve the plugin's persistent data directory (~/.claude/plugins/data/{id}/)",
+      "zh": "保留插件的持久化数据目录（~/.claude/plugins/data/{id}/）"
+    },
+    {
+      "id": "option.help:-p__--print",
+      "kind": "option.help",
+      "flag": "-p, --print",
+      "start": 13173680,
+      "end": 13173851,
+      "en": "Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.",
+      "zh": "打印响应后退出（适合管道场景）。注意：-p 模式下不弹工作区信任对话框，请仅在信任的目录中使用。"
+    },
+    {
+      "id": "option.help:--dry-run",
+      "kind": "option.help",
+      "flag": "--dry-run",
+      "start": 13223963,
+      "end": 13224011,
+      "en": "Print what would be tagged without creating it",
+      "zh": "打印将要打的 tag 但不实际创建"
+    },
+    {
+      "id": "option.help:--client-secret",
+      "kind": "option.help",
+      "flag": "--client-secret",
+      "start": 12955007,
+      "end": 12955074,
+      "en": "Prompt for OAuth client secret (or set MCP_CLIENT_SECRET env var)",
+      "zh": "交互式输入 OAuth 客户端密钥（或设置 MCP_CLIENT_SECRET 环境变量）"
+    },
+    {
+      "id": "option.help:--client-secret#3",
+      "kind": "option.help",
+      "flag": "--client-secret",
+      "start": 13221099,
+      "end": 13221166,
+      "en": "Prompt for OAuth client secret (or set MCP_CLIENT_SECRET env var)",
+      "zh": "交互式输入 OAuth 客户端密钥（或设置 MCP_CLIENT_SECRET 环境变量）"
+    },
+    {
+      "id": "option.help:--push",
+      "kind": "option.help",
+      "flag": "--push",
+      "start": 13223898,
+      "end": 13223942,
+      "en": "Push the tag to --remote after creating it",
+      "zh": "创建 tag 后推送到 --remote 指定的远端"
+    },
+    {
+      "id": "option.help:--replay-user-messages",
+      "kind": "option.help",
+      "flag": "--replay-user-messages",
+      "start": 13177479,
+      "end": 13177624,
+      "en": "Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)",
+      "zh": "把 stdin 的用户消息回显到 stdout 作确认（仅在 --input-format=stream-json 且 --output-format=stream-json 下生效）"
+    },
+    {
+      "id": "option.help:--client-secret#2",
+      "kind": "option.help",
+      "flag": "--client-secret",
+      "start": 12958610,
+      "end": 12958673,
+      "en": "Read IdP client secret from MCP_XAA_IDP_CLIENT_SECRET env var",
+      "zh": "从 MCP_XAA_IDP_CLIENT_SECRET 环境变量读取 IdP 客户端密钥"
+    },
+    {
+      "id": "option.help:--system-prompt-file__file_",
+      "kind": "option.help",
+      "flag": "--system-prompt-file <file>",
+      "start": 13178606,
+      "end": 13178638,
+      "en": "Read system prompt from a file",
+      "zh": "从文件读取系统提示"
+    },
+    {
+      "id": "option.help:--append-system-prompt-file__file_",
+      "kind": "option.help",
+      "flag": "--append-system-prompt-file <file>",
+      "start": 13178849,
+      "end": 13178921,
+      "en": "Read system prompt from a file and append to the default system prompt",
+      "zh": "从文件读取系统提示，并追加到默认系统提示之后"
+    },
+    {
+      "id": "option.help:--remote__name_",
+      "kind": "option.help",
+      "flag": "--remote <name>",
+      "start": 13224200,
+      "end": 13224231,
+      "en": "Remote to push to with --push",
+      "zh": "配合 --push 使用时推送的目标远端"
+    },
+    {
+      "id": "option.help:--deep-link-repo__slug_",
+      "kind": "option.help",
+      "flag": "--deep-link-repo <slug>",
+      "start": 13180307,
+      "end": 13180377,
+      "en": "Repo slug the deep link ?repo= parameter resolved to the current cwd",
+      "zh": "深链 ?repo= 参数解析到当前 cwd 对应的 repo slug"
+    },
+    {
+      "id": "option.help:--plan-mode-required",
+      "kind": "option.help",
+      "flag": "--plan-mode-required",
+      "start": 13217664,
+      "end": 13217705,
+      "en": "Require plan mode before implementation",
+      "zh": "在实现之前强制进入计划模式"
+    },
+    {
+      "id": "option.help:--rewind-files__user-message-id_",
+      "kind": "option.help",
+      "flag": "--rewind-files <user-message-id>",
+      "start": 13181522,
+      "end": 13181605,
+      "en": "Restore files to state at the specified user message and exit (requires --resume)",
+      "zh": "把文件恢复到指定用户消息时的状态并退出（需要 --resume）"
+    },
+    {
+      "id": "option.help:-r__--resume__value_",
+      "kind": "option.help",
+      "flag": "-r, --resume [value]",
+      "start": 13179804,
+      "end": 13179895,
+      "en": "Resume a conversation by session ID, or open interactive picker with optional search term",
+      "zh": "按会话 ID 恢复对话；或打开交互式选择器（可带搜索词）"
+    },
+    {
+      "id": "option.help:--from-pr__value_",
+      "kind": "option.help",
+      "flag": "--from-pr [value]",
+      "start": 13180995,
+      "end": 13181099,
+      "en": "Resume a session linked to a PR by PR number/URL, or open interactive picker with optional search term",
+      "zh": "按 PR 编号/URL 恢复关联会话；或打开交互式选择器（可带搜索词）"
+    },
+    {
+      "id": "option.help:--teleport__session_",
+      "kind": "option.help",
+      "flag": "--teleport [session]",
+      "start": 13218253,
+      "end": 13218311,
+      "en": "Resume a teleport session, optionally specify session ID",
+      "zh": "恢复一个 teleport 会话，可选指定 session ID"
+    },
+    {
+      "id": "option.help:--init-only",
+      "kind": "option.help",
+      "flag": "--init-only",
+      "start": 13174554,
+      "end": 13174607,
+      "en": "Run Setup and SessionStart:startup hooks, then exit",
+      "zh": "执行 Setup 和 SessionStart:startup hook，然后退出"
+    },
+    {
+      "id": "option.help:--init",
+      "kind": "option.help",
+      "flag": "--init",
+      "start": 13174459,
+      "end": 13174509,
+      "en": "Run Setup hooks with init trigger, then continue",
+      "zh": "以 init 触发器执行 Setup hook，然后继续"
+    },
+    {
+      "id": "option.help:--maintenance",
+      "kind": "option.help",
+      "flag": "--maintenance",
+      "start": 13174654,
+      "end": 13174711,
+      "en": "Run Setup hooks with maintenance trigger, then continue",
+      "zh": "以 maintenance 触发器执行 Setup hook，然后继续"
+    },
+    {
+      "id": "option.help:-n__--name__name_",
+      "kind": "option.help",
+      "flag": "-n, --name <name>",
+      "start": 13183285,
+      "end": 13183384,
+      "en": "Set a display name for this session (shown in the prompt box, /resume picker, and terminal title)",
+      "zh": "为当前会话设置显示名（出现在输入框、/resume 选择器和终端标题栏）"
+    },
+    {
+      "id": "option.help:-e__--env__env____",
+      "kind": "option.help",
+      "flag": "-e, --env <env...>",
+      "start": 12954751,
+      "end": 12954798,
+      "en": "Set environment variables (e.g. -e KEY=value)",
+      "zh": "设置环境变量（如 -e KEY=value）"
+    },
+    {
+      "id": "option.help:-H__--header__header____",
+      "kind": "option.help",
+      "flag": "-H, --header <header...>",
+      "start": 12954834,
+      "end": 12954908,
+      "en": "Set WebSocket headers (e.g. -H \"X-Api-Key: abc123\" -H \"X-Custom: value\")",
+      "zh": "设置 WebSocket 请求头（如 -H \"X-Api-Key: abc123\" -H \"X-Custom: value\"）"
+    },
+    {
+      "id": "option.help:--deep-link-origin",
+      "kind": "option.help",
+      "flag": "--deep-link-origin",
+      "start": 13180194,
+      "end": 13180250,
+      "en": "Signal that this session was launched from a deep link",
+      "zh": "标识该会话是从深链启动的"
+    },
+    {
+      "id": "option.help:-f__--force",
+      "kind": "option.help",
+      "flag": "-f, --force",
+      "start": 13224034,
+      "end": 13224093,
+      "en": "Skip the dirty-working-tree and tag-already-exists checks",
+      "zh": "跳过工作区脏检查和 tag 已存在检查"
+    },
+    {
+      "id": "option.help:--tools__tools____",
+      "kind": "option.help",
+      "flag": "--tools <tools...>",
+      "start": 13177902,
+      "end": 13178066,
+      "en": "Specify the list of available tools from the built-in set. Use \"\" to disable all tools, \"default\" to use all tools, or specify tool names (e.g. \"Bash,Edit,Read\").",
+      "zh": "从内置集合中指定可用工具列表。用 \"\" 禁用全部工具，\"default\" 使用全部，或指定名称（如 \"Bash,Edit,Read\"）"
+    },
+    {
+      "id": "option.help:--remote-control__name_",
+      "kind": "option.help",
+      "flag": "--remote-control [name]",
+      "start": 13218561,
+      "end": 13218638,
+      "en": "Start an interactive session with Remote Control enabled (optionally named)",
+      "zh": "启动一个开启 Remote Control 的交互式会话（可选命名）"
+    },
+    {
+      "id": "option.help:--system-prompt__prompt_",
+      "kind": "option.help",
+      "flag": "--system-prompt <prompt>",
+      "start": 13178500,
+      "end": 13178538,
+      "en": "System prompt to use for the session",
+      "zh": "当前会话使用的系统提示"
+    },
+    {
+      "id": "option.help:-m__--message__msg_",
+      "kind": "option.help",
+      "flag": "-m, --message <msg>",
+      "start": 13224124,
+      "end": 13224173,
+      "en": "Tag annotation message (use %s for the version)",
+      "zh": "tag 注释信息（用 %s 表示版本号）"
+    },
+    {
+      "id": "option.help:--team-name__name_",
+      "kind": "option.help",
+      "flag": "--team-name <name>",
+      "start": 13217498,
+      "end": 13217532,
+      "en": "Team name for swarm coordination",
+      "zh": "用于 swarm 协作的团队名称"
+    },
+    {
+      "id": "option.help:--agent-id__id_",
+      "kind": "option.help",
+      "flag": "--agent-id <id>",
+      "start": 13217347,
+      "end": 13217366,
+      "en": "Teammate agent ID",
+      "zh": "队友 Agent 的 ID"
+    },
+    {
+      "id": "option.help:--agent-name__name_",
+      "kind": "option.help",
+      "flag": "--agent-name <name>",
+      "start": 13217421,
+      "end": 13217444,
+      "en": "Teammate display name",
+      "zh": "队友显示名称"
+    },
+    {
+      "id": "option.help:--agent-color__color_",
+      "kind": "option.help",
+      "flag": "--agent-color <color>",
+      "start": 13217589,
+      "end": 13217608,
+      "en": "Teammate UI color",
+      "zh": "队友 UI 颜色"
+    },
+    {
+      "id": "option.help:--thinking__mode_",
+      "kind": "option.help",
+      "flag": "--thinking <mode>",
+      "start": 13176254,
+      "end": 13176313,
+      "en": "Thinking mode: enabled (equivalent to adaptive), disabled",
+      "zh": "思考模式：enabled（等同于 adaptive）、disabled"
+    },
+    {
+      "id": "option.help:-t__--transport__transport_",
+      "kind": "option.help",
+      "flag": "-t, --transport <transport>",
+      "start": 12954649,
+      "end": 12954721,
+      "en": "Transport type (stdio, sse, http). Defaults to stdio if not specified.",
+      "zh": "传输类型（stdio、sse、http），未指定时默认为 stdio"
+    },
+    {
+      "id": "option.help:-s__--scope__scope_#6",
+      "kind": "option.help",
+      "flag": "-s, --scope <scope>",
+      "start": 13227071,
+      "end": 13227118,
+      "en": "Uninstall from scope: user, project, or local",
+      "zh": "卸载范围：user、project 或 local"
+    },
+    {
+      "id": "option.help:--session-id__uuid_",
+      "kind": "option.help",
+      "flag": "--session-id <uuid>",
+      "start": 13183185,
+      "end": 13183256,
+      "en": "Use a specific session ID for the conversation (must be a valid UUID)",
+      "zh": "使用指定的会话 ID（必须是有效的 UUID）"
+    },
+    {
+      "id": "option.help:--console",
+      "kind": "option.help",
+      "flag": "--console",
+      "start": 13222325,
+      "end": 13222399,
+      "en": "Use Anthropic Console (API usage billing) instead of Claude subscription",
+      "zh": "使用 Anthropic Console（按 API 用量计费），而非 Claude 订阅"
+    },
+    {
+      "id": "option.help:--claudeai",
+      "kind": "option.help",
+      "flag": "--claudeai",
+      "start": 13222421,
+      "end": 13222456,
+      "en": "Use Claude subscription (default)",
+      "zh": "使用 Claude 订阅（默认）"
+    },
+    {
+      "id": "option.help:--cowork",
+      "kind": "option.help",
+      "flag": "--cowork",
+      "start": 13223269,
+      "end": 13223299,
+      "en": "Use cowork_plugins directory",
+      "zh": "使用 cowork_plugins 目录"
+    },
+    {
+      "id": "option.help:--sdk-url__url_",
+      "kind": "option.help",
+      "flag": "--sdk-url <url>",
+      "start": 13218106,
+      "end": 13218197,
+      "en": "Use remote WebSocket endpoint for SDK I/O streaming (only with -p and stream-json format)",
+      "zh": "使用远程 WebSocket 端点进行 SDK I/O 流传输（仅配合 -p 和 stream-json 格式使用）"
+    },
+    {
+      "id": "option.help:--fork-session",
+      "kind": "option.help",
+      "flag": "--fork-session",
+      "start": 13179932,
+      "end": 13180038,
+      "en": "When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)",
+      "zh": "恢复对话时新建会话 ID 而不复用原 ID（配合 --resume 或 --continue 使用）"
+    },
+    {
+      "id": "option.help:--resume-session-at__message_id_",
+      "kind": "option.help",
+      "flag": "--resume-session-at <message id>",
+      "start": 13181314,
+      "end": 13181438,
+      "en": "When resuming, only messages up to and including the assistant message with <message.id> (use with --resume in print mode)",
+      "zh": "恢复会话时，仅保留到指定 <message.id> 助手消息为止的所有消息（需配合 print 模式下的 --resume 使用）"
+    },
+    {
+      "id": "option.help:--scope__scope_",
+      "kind": "option.help",
+      "flag": "--scope <scope>",
+      "start": 13225225,
+      "end": 13225294,
+      "en": "Where to declare the marketplace: user (default), project, or local",
+      "zh": "市场声明位置：user（默认）、project 或 local"
+    },
+    {
+      "id": "option.help:--workload__tag_",
+      "kind": "option.help",
+      "flag": "--workload <tag>",
+      "start": 13182420,
+      "end": 13182587,
+      "en": "Workload tag for billing-header attribution (cc_workload). Process-scoped; set by SDK daemon callers that spawn subprocesses for cron work. (only works with --print)",
+      "zh": "用于计费 header 归因的 workload 标签（cc_workload）。进程级作用域；由为 cron 任务派生子进程的 SDK daemon 调用方设置。（仅配合 --print 使用）"
+    },
+    {
+      "id": "option.help:--debug-file__path_",
+      "kind": "option.help",
+      "flag": "--debug-file <path>",
+      "start": 13173505,
+      "end": 13173579,
+      "en": "Write debug logs to a specific file path (implicitly enables debug mode)",
+      "zh": "把调试日志写到指定文件（自动启用调试模式）"
+    },
+    {
+      "id": "option.help:--id-token__jwt_",
+      "kind": "option.help",
+      "flag": "--id-token <jwt>",
+      "start": 12960356,
+      "end": 12960441,
+      "en": "Write this pre-obtained id_token directly to cache, skipping the OIDC browser login",
+      "zh": "直接把预先取得的 id_token 写入缓存，跳过 OIDC 浏览器登录"
+    },
+    {
+      "id": "skill.description:claude-api",
+      "kind": "skill.description",
+      "name": "claude-api",
+      "type": null,
+      "start": 12949678,
+      "end": 12949938,
+      "en": "`Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 \\u2192 4.6, 4.6 \\u2192 4.7, retired-model replacements).\n`",
+      "zh": "`构建、调试并优化基于 Claude API / Anthropic SDK 的应用。用该 skill 构建的应用应启用 prompt 缓存。也负责在不同 Claude 模型版本间迁移现有 Claude API 代码（4.5 \\u2192 4.6、4.6 \\u2192 4.7，以及下架模型的替换）。\n`",
+      "isTemplate": true
+    },
+    {
+      "id": "skill.description:schedule",
+      "kind": "skill.description",
+      "name": "schedule",
+      "type": null,
+      "start": 12488186,
+      "end": 12488339,
+      "en": "`Create, update, list, or run scheduled remote agents (routines) ${H?\"on a cron schedule or once at a specific time\":\"that execute on a cron schedule\"}.`",
+      "zh": "`创建、更新、列出或运行定时远程 Agent（例程），${H?\"按 cron 排程或在指定时间运行一次\":\"按 cron 排程执行\"}。`",
+      "isTemplate": true
+    },
+    {
+      "id": "skill.description:claude-in-chrome",
+      "kind": "skill.description",
+      "name": "claude-in-chrome",
+      "type": null,
+      "start": 12388648,
+      "end": 12388950,
+      "en": "Automates your Chrome browser to interact with web pages - clicking elements, filling forms, capturing screenshots, reading console logs, and navigating sites. Opens pages in new tabs within your existing Chrome session. Requires site-level permissions before executing (configured in the extension).",
+      "zh": "自动化 Chrome 浏览器与网页交互——点击元素、填写表单、截屏、读取控制台日志、在站点间导航。在已有 Chrome 会话中打开新标签页。执行前需要网站级权限（在扩展中配置）。"
+    },
+    {
+      "id": "skill.description:security-review",
+      "kind": "skill.description",
+      "name": "security-review",
+      "type": null,
+      "start": 10672478,
+      "end": 10672551,
+      "en": "Complete a security review of the pending changes on the current branch",
+      "zh": "对当前分支的待提交改动执行安全审查"
+    },
+    {
+      "id": "skill.description:debug",
+      "kind": "skill.description",
+      "name": "debug",
+      "type": null,
+      "start": 12389786,
+      "end": 12389850,
+      "en": "Enable debug logging for this session and help diagnose issues",
+      "zh": "为当前会话开启调试日志，辅助诊断问题"
+    },
+    {
+      "id": "skill.description:dream",
+      "kind": "skill.description",
+      "name": "dream",
+      "type": null,
+      "start": 12455985,
+      "end": 12456120,
+      "en": "Reflective memory consolidation — review recent activity, synthesize learnings into typed memory files, and prune stale entries.",
+      "zh": "反思式记忆整理——回顾近期活动，把所学归纳到分类记忆文件，并清理过时条目。"
+    },
+    {
+      "id": "skill.description:batch",
+      "kind": "skill.description",
+      "name": "batch",
+      "type": null,
+      "start": 12386607,
+      "end": 12386739,
+      "en": "Research and plan a large-scale change, then execute it in parallel across 5–30 isolated worktree agents that each open a PR.",
+      "zh": "调研并规划一次大规模改动，然后在 5–30 个隔离的 worktree Agent 中并行执行，每个各开一个 PR。"
+    },
+    {
+      "id": "skill.description:simplify",
+      "kind": "skill.description",
+      "name": "simplify",
+      "type": null,
+      "start": 12407957,
+      "end": 12408041,
+      "en": "Review changed code for reuse, quality, and efficiency, then fix any issues found.",
+      "zh": "审查改动代码的复用性、质量和效率，并修复发现的问题。"
+    },
+    {
+      "id": "skill.description:loop#2",
+      "kind": "skill.description",
+      "name": "loop",
+      "type": null,
+      "start": 12468469,
+      "end": 12468562,
+      "en": "Run a prompt or slash command on a recurring interval (e.g. /loop 5m /foo, defaults to 10m)",
+      "zh": "按设定周期循环运行 prompt 或斜杠命令（例如 /loop 5m /foo，默认 10m）"
+    },
+    {
+      "id": "skill.description:loop",
+      "kind": "skill.description",
+      "name": "loop",
+      "type": null,
+      "start": 12468339,
+      "end": 12468462,
+      "en": "Run a prompt or slash command on a recurring interval (e.g. /loop 5m /foo). Omit the interval to let the model self-pace.",
+      "zh": "按设定周期循环运行 prompt 或斜杠命令（例如 /loop 5m /foo）。省略周期则由模型自行决定节奏。"
+    },
+    {
+      "id": "skill.description:fewer-permission-prompts",
+      "kind": "skill.description",
+      "name": "fewer-permission-prompts",
+      "type": null,
+      "start": 12391963,
+      "end": 12392128,
+      "en": "Scan your transcripts for common read-only Bash and MCP tool calls, then add a prioritized allowlist to project .claude/settings.json to reduce permission prompts.",
+      "zh": "扫描会话记录中常见的只读 Bash 和 MCP 工具调用，向项目 .claude/settings.json 写入按优先级排序的白名单，以减少权限提示。"
+    },
+    {
+      "id": "skill.description:claude-api#2",
+      "kind": "skill.description",
+      "name": "claude-api",
+      "type": null,
+      "start": 12950289,
+      "end": 12950788,
+      "en": "TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project.\nSKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML.",
+      "zh": "触发场景：代码导入 `anthropic`/`@anthropic-ai/sdk`；用户询问 Claude API、Anthropic SDK 或 Managed Agents；用户在文件里添加/修改/调优某个 Claude 功能（caching、thinking、compaction、tool use、batch、files、citations、memory）或模型（Opus/Sonnet/Haiku）；Anthropic SDK 项目里涉及 prompt 缓存 / 缓存命中率的问题。\n跳过：文件导入 `openai`/其他 provider SDK，文件名如 `*-openai.py`/`*-generic.py`，provider 无关的代码，通用编程/ML 问题。"
+    },
+    {
+      "id": "skill.description:update-config",
+      "kind": "skill.description",
+      "name": "update-config",
+      "type": null,
+      "start": 12423353,
+      "end": 12424045,
+      "en": "Use this skill to configure the Claude Code harness via settings.json. Automated behaviors (\"from now on when X\", \"each time X\", \"whenever X\", \"before/after X\") require hooks configured in settings.json - the harness executes these, not Claude, so memory/preferences cannot fulfill them. Also use for: permissions (\"allow X\", \"add permission\", \"move permission to\"), env vars (\"set X=Y\"), hook troubleshooting, or any changes to settings.json/settings.local.json files. Examples: \"allow npm commands\", \"add bq permission to global settings\", \"move permission to user settings\", \"set DEBUG=true\", \"when claude stops show X\". For simple settings like theme/model, suggest the /config command.",
+      "zh": "使用该 skill 通过 settings.json 配置 Claude Code harness。自动化行为（如“从现在起当 X 时”、“每次 X 时”、“每当 X 时”、“X 之前/之后”）需要在 settings.json 中配置 hook——这些由 harness 执行而非 Claude，所以 memory/preferences 无法实现。也用于：权限（“允许 X”、“添加权限”、“把权限移到”）、环境变量（“设置 X=Y”）、hook 排错，或对 settings.json/settings.local.json 的任何改动。示例：“允许 npm 命令”、“给全局设置加 bq 权限”、“把权限移到用户设置”、“设置 DEBUG=true”、“claude 停止时显示 X”。主题/模型这类简单设置请建议用 /config 命令。"
+    },
+    {
+      "id": "skill.description:keybindings-help",
+      "kind": "skill.description",
+      "name": "keybindings-help",
+      "type": null,
+      "start": 12401167,
+      "end": 12401397,
+      "en": "Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modify ~/.claude/keybindings.json. Examples: \"rebind ctrl+s\", \"add a chord shortcut\", \"change the submit key\", \"customize keybindings\".",
+      "zh": "当用户想自定义键盘快捷键、重新绑定按键、添加组合键绑定或修改 ~/.claude/keybindings.json 时使用。示例：“重新绑定 ctrl+s”、“添加组合快捷键”、“改提交键”、“自定义键绑定”。"
+    },
+    {
+      "id": "slash.argumentHint:resume",
+      "kind": "slash.argumentHint",
+      "name": "resume",
+      "start": 10538106,
+      "end": 10538140,
+      "en": "[conversation id or search term]",
+      "zh": "[会话 ID 或搜索关键词]"
+    },
+    {
+      "id": "slash.argumentHint:tui",
+      "kind": "slash.argumentHint",
+      "name": "tui",
+      "start": 10692868,
+      "end": 10692890,
+      "en": "[default|fullscreen]",
+      "zh": "[default|fullscreen]"
+    },
+    {
+      "id": "slash.argumentHint:mcp",
+      "kind": "slash.argumentHint",
+      "name": "mcp",
+      "start": 10291393,
+      "end": 10291425,
+      "en": "[enable|disable [server-name]]",
+      "zh": "[enable|disable [服务器名]]"
+    },
+    {
+      "id": "slash.argumentHint:export",
+      "kind": "slash.argumentHint",
+      "name": "export",
+      "start": 10944703,
+      "end": 10944715,
+      "en": "[filename]",
+      "zh": "[文件名]"
+    },
+    {
+      "id": "slash.argumentHint:voice",
+      "kind": "slash.argumentHint",
+      "name": "voice",
+      "start": 11010681,
+      "end": 11010697,
+      "en": "[hold|tap|off]",
+      "zh": "[hold|tap|off]"
+    },
+    {
+      "id": "slash.argumentHint:effort",
+      "kind": "slash.argumentHint",
+      "name": "effort",
+      "start": 10973046,
+      "end": 10973080,
+      "en": "[low|medium|high|xhigh|max|auto]",
+      "zh": "[low|medium|high|xhigh|max|auto]"
+    },
+    {
+      "id": "slash.argumentHint:model#2",
+      "kind": "slash.argumentHint",
+      "name": "model",
+      "start": 10951099,
+      "end": 10951108,
+      "en": "[model]",
+      "zh": "[模型]"
+    },
+    {
+      "id": "slash.argumentHint:rename",
+      "kind": "slash.argumentHint",
+      "name": "rename",
+      "start": 10384273,
+      "end": 10384281,
+      "en": "[name]",
+      "zh": "[名称]"
+    },
+    {
+      "id": "slash.argumentHint:rename#2",
+      "kind": "slash.argumentHint",
+      "name": "rename",
+      "start": 10384486,
+      "end": 10384494,
+      "en": "[name]",
+      "zh": "[名称]"
+    },
+    {
+      "id": "slash.argumentHint:branch",
+      "kind": "slash.argumentHint",
+      "name": "branch",
+      "start": 10783377,
+      "end": 10783385,
+      "en": "[name]",
+      "zh": "[名称]"
+    },
+    {
+      "id": "slash.argumentHint:remote-control",
+      "kind": "slash.argumentHint",
+      "name": "remote-control",
+      "start": 10986054,
+      "end": 10986062,
+      "en": "[name]",
+      "zh": "[名称]"
+    },
+    {
+      "id": "slash.argumentHint:fast",
+      "kind": "slash.argumentHint",
+      "name": "fast",
+      "start": 10727324,
+      "end": 10727334,
+      "en": "[on|off]",
+      "zh": "[on|off]"
+    },
+    {
+      "id": "slash.argumentHint:fast#2",
+      "kind": "slash.argumentHint",
+      "name": "fast",
+      "start": 10727598,
+      "end": 10727608,
+      "en": "[on|off]",
+      "zh": "[on|off]"
+    },
+    {
+      "id": "slash.argumentHint:ide",
+      "kind": "slash.argumentHint",
+      "name": "ide",
+      "start": 9984390,
+      "end": 9984398,
+      "en": "[open]",
+      "zh": "[open]"
+    },
+    {
+      "id": "slash.argumentHint:plan",
+      "kind": "slash.argumentHint",
+      "name": "plan",
+      "start": 10721669,
+      "end": 10721691,
+      "en": "[open|<description>]",
+      "zh": "[open|<描述>]"
+    },
+    {
+      "id": "slash.argumentHint:install",
+      "kind": "slash.argumentHint",
+      "name": "install",
+      "start": 13127437,
+      "end": 13127448,
+      "en": "[options]",
+      "zh": "[选项]"
+    },
+    {
+      "id": "slash.argumentHint:feedback",
+      "kind": "slash.argumentHint",
+      "name": "feedback",
+      "start": 9485813,
+      "end": 9485823,
+      "en": "[report]",
+      "zh": "[反馈内容]"
+    },
+    {
+      "id": "slash.argumentHint:advisor",
+      "kind": "slash.argumentHint",
+      "name": "advisor",
+      "start": 10925096,
+      "end": 10925127,
+      "en": "`[${[...YCH,\"off\"].join(\"|\")}]`",
+      "zh": "`[${[...YCH,\"off\"].join(\"|\")}]`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.argumentHint:color",
+      "kind": "slash.argumentHint",
+      "name": "color",
+      "start": 9507689,
+      "end": 9507723,
+      "en": "`<${[...V$,\"default\"].join(\"|\")}>`",
+      "zh": "`<${[...V$,\"default\"].join(\"|\")}>`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.argumentHint:color#2",
+      "kind": "slash.argumentHint",
+      "name": "color",
+      "start": 9507920,
+      "end": 9507954,
+      "en": "`<${[...V$,\"default\"].join(\"|\")}>`",
+      "zh": "`<${[...V$,\"default\"].join(\"|\")}>`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.argumentHint:fork",
+      "kind": "slash.argumentHint",
+      "name": "fork",
+      "start": 11030494,
+      "end": 11030507,
+      "en": "<directive>",
+      "zh": "<指令>"
+    },
+    {
+      "id": "slash.argumentHint:effort#2",
+      "kind": "slash.argumentHint",
+      "name": "effort",
+      "start": 10973336,
+      "end": 10973370,
+      "en": "<low|medium|high|xhigh|max|auto>",
+      "zh": "<low|medium|high|xhigh|max|auto>"
+    },
+    {
+      "id": "slash.argumentHint:model",
+      "kind": "slash.argumentHint",
+      "name": "model",
+      "start": 10950905,
+      "end": 10950914,
+      "en": "<model>",
+      "zh": "<模型>"
+    },
+    {
+      "id": "slash.argumentHint:compact",
+      "kind": "slash.argumentHint",
+      "name": "compact",
+      "start": 9530629,
+      "end": 9530675,
+      "en": "<optional custom summarization instructions>",
+      "zh": "<可选的自定义总结说明>"
+    },
+    {
+      "id": "slash.argumentHint:add-dir",
+      "kind": "slash.argumentHint",
+      "name": "add-dir",
+      "start": 3894668,
+      "end": 3894676,
+      "en": "<path>",
+      "zh": "<路径>"
+    },
+    {
+      "id": "slash.argumentHint:ultraplan",
+      "kind": "slash.argumentHint",
+      "name": "ultraplan",
+      "start": 10571104,
+      "end": 10571114,
+      "en": "<prompt>",
+      "zh": "<提示词>"
+    },
+    {
+      "id": "slash.argumentHint:btw",
+      "kind": "slash.argumentHint",
+      "name": "btw",
+      "start": 9469292,
+      "end": 9469304,
+      "en": "<question>",
+      "zh": "<问题>"
+    },
+    {
+      "id": "slash.argumentHint:sandbox",
+      "kind": "slash.argumentHint",
+      "name": "sandbox",
+      "start": 10905806,
+      "end": 10905833,
+      "en": "exclude \"command pattern\"",
+      "zh": "exclude “命令模式”"
+    },
+    {
+      "id": "slash.description:sandbox",
+      "kind": "slash.description",
+      "name": "sandbox",
+      "type": "local-jsx",
+      "start": 10905758,
+      "end": 10905791,
+      "en": "`${T} ${$} (\\u23CE to configure)`",
+      "zh": "`${T} ${$}（按 \\u23CE 配置）`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:ultraplan",
+      "kind": "slash.description",
+      "name": "ultraplan",
+      "type": "local-jsx",
+      "start": 10570987,
+      "end": 10571089,
+      "en": "`${Y96().timeEstimate} \\xB7 Claude Code on the web drafts a plan you can edit and approve. See ${WTH}`",
+      "zh": "`${Y96().timeEstimate} \\xB7 Claude Code 网页版为你起草一份可编辑并批准的计划。详见 ${WTH}`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:ultrareview",
+      "kind": "slash.description",
+      "name": "ultrareview",
+      "type": "local-jsx",
+      "start": 10582141,
+      "end": 10582267,
+      "en": "`${z6H()} \\xB7 Est. cost ${qWH()} USD \\xB7 Finds and verifies bugs in your branch. Runs in Claude Code on the web. See ${Ux5}`",
+      "zh": "`${z6H()} \\xB7 预估费用 ${qWH()} USD \\xB7 在你的分支上查找并验证 bug。在 Claude Code 网页版中运行。详见 ${Ux5}`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:model#2",
+      "kind": "slash.description",
+      "name": "model",
+      "type": "local-jsx",
+      "start": 10951026,
+      "end": 10951084,
+      "en": "`Set the AI model for Claude Code (currently ${qj(IK())})`",
+      "zh": "`设置 Claude Code 使用的 AI 模型（当前：${qj(IK())}）`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:fast",
+      "kind": "slash.description",
+      "name": "fast",
+      "type": "local-jsx",
+      "start": 10727231,
+      "end": 10727262,
+      "en": "`Toggle fast mode (${wE} only)`",
+      "zh": "`切换快速模式（仅 ${wE}）`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:fast#2",
+      "kind": "slash.description",
+      "name": "fast",
+      "type": "local",
+      "start": 10727552,
+      "end": 10727583,
+      "en": "`Toggle fast mode (${wE} only)`",
+      "zh": "`切换快速模式（仅 ${wE}）`",
+      "isTemplate": true
+    },
+    {
+      "id": "slash.description:reload-plugins",
+      "kind": "slash.description",
+      "name": "reload-plugins",
+      "type": "local",
+      "start": 10872002,
+      "end": 10872058,
+      "en": "Activate pending plugin changes in the current session",
+      "zh": "在当前会话激活待生效的插件改动"
+    },
+    {
+      "id": "slash.description:add-dir",
+      "kind": "slash.description",
+      "name": "add-dir",
+      "type": "local-jsx",
+      "start": 3894625,
+      "end": 3894654,
+      "en": "Add a new working directory",
+      "zh": "添加一个新的工作目录"
+    },
+    {
+      "id": "slash.description:btw",
+      "kind": "slash.description",
+      "name": "btw",
+      "type": "local-jsx",
+      "start": 9469195,
+      "end": 9469265,
+      "en": "Ask a quick side question without interrupting the main conversation",
+      "zh": "不打断主对话，问个小问题"
+    },
+    {
+      "id": "slash.description:theme",
+      "kind": "slash.description",
+      "name": "theme",
+      "type": "local-jsx",
+      "start": 10690400,
+      "end": 10690418,
+      "en": "Change the theme",
+      "zh": "切换主题"
+    },
+    {
+      "id": "slash.description:chrome",
+      "kind": "slash.description",
+      "name": "chrome",
+      "type": "local-jsx",
+      "start": 10916387,
+      "end": 10916421,
+      "en": "Claude in Chrome (Beta) settings",
+      "zh": "Claude in Chrome（Beta）设置"
+    },
+    {
+      "id": "slash.description:commit-push-pr",
+      "kind": "slash.description",
+      "name": "commit-push-pr",
+      "type": "prompt",
+      "start": 9526441,
+      "end": 9526470,
+      "en": "Commit, push, and open a PR",
+      "zh": "提交、推送并开 PR"
+    },
+    {
+      "id": "slash.description:extra-usage",
+      "kind": "slash.description",
+      "name": "extra-usage",
+      "type": "local-jsx",
+      "start": 7786726,
+      "end": 7786785,
+      "en": "Configure extra usage to keep working when limits are hit",
+      "zh": "配置额外用量，触顶后继续使用"
+    },
+    {
+      "id": "slash.description:extra-usage#2",
+      "kind": "slash.description",
+      "name": "extra-usage",
+      "type": "local",
+      "start": 7786958,
+      "end": 7787017,
+      "en": "Configure extra usage to keep working when limits are hit",
+      "zh": "配置额外用量，触顶后继续使用"
+    },
+    {
+      "id": "slash.description:advisor",
+      "kind": "slash.description",
+      "name": "advisor",
+      "type": "local-jsx",
+      "start": 10924984,
+      "end": 10925082,
+      "en": "Configure the Advisor Tool to consult a stronger model for guidance at key moments during a task",
+      "zh": "配置 Advisor 工具：在任务关键时刻咨询更强的模型以获取指导"
+    },
+    {
+      "id": "slash.description:remote-env",
+      "kind": "slash.description",
+      "name": "remote-env",
+      "type": "local-jsx",
+      "start": 10956666,
+      "end": 10956730,
+      "en": "Configure the default remote environment for teleport sessions",
+      "zh": "为 teleport 会话配置默认远程环境"
+    },
+    {
+      "id": "slash.description:remote-control",
+      "kind": "slash.description",
+      "name": "remote-control",
+      "type": "local-jsx",
+      "start": 10985989,
+      "end": 10986040,
+      "en": "Connect this terminal for remote-control sessions",
+      "zh": "将当前终端连接到远程控制会话"
+    },
+    {
+      "id": "slash.description:desktop",
+      "kind": "slash.description",
+      "name": "desktop",
+      "type": "local-jsx",
+      "start": 9522433,
+      "end": 9522481,
+      "en": "Continue the current session in Claude Desktop",
+      "zh": "在 Claude Desktop 里继续当前会话"
+    },
+    {
+      "id": "slash.description:copy",
+      "kind": "slash.description",
+      "name": "copy",
+      "type": "local-jsx",
+      "start": 9517065,
+      "end": 9517139,
+      "en": "Copy Claude's last response to clipboard (or /copy N for the Nth-latest)",
+      "zh": "把 Claude 最后一次回复复制到剪贴板（或用 /copy N 复制倒数第 N 条）"
+    },
+    {
+      "id": "slash.description:branch",
+      "kind": "slash.description",
+      "name": "branch",
+      "type": "local-jsx",
+      "start": 10783304,
+      "end": 10783363,
+      "en": "Create a branch of the current conversation at this point",
+      "zh": "在当前位置对当前对话开个分支"
+    },
+    {
+      "id": "slash.description:commit",
+      "kind": "slash.description",
+      "name": "commit",
+      "type": "prompt",
+      "start": 9510317,
+      "end": 9510338,
+      "en": "Create a git commit",
+      "zh": "创建 git commit"
+    },
+    {
+      "id": "slash.description:init-verifiers",
+      "kind": "slash.description",
+      "name": "init-verifiers",
+      "type": "prompt",
+      "start": 10005011,
+      "end": 10005080,
+      "en": "Create verifier skill(s) for automated verification of code changes",
+      "zh": "创建 verifier skill，用于自动化验证代码改动"
+    },
+    {
+      "id": "slash.description:doctor",
+      "kind": "slash.description",
+      "name": "doctor",
+      "type": "local-jsx",
+      "start": 9950034,
+      "end": 9950098,
+      "en": "Diagnose and verify your Claude Code installation and settings",
+      "zh": "诊断并检查 Claude Code 安装与配置"
+    },
+    {
+      "id": "slash.description:powerup",
+      "kind": "slash.description",
+      "name": "powerup",
+      "type": "local-jsx",
+      "start": 10374746,
+      "end": 10374811,
+      "en": "Discover Claude Code features through quick interactive lessons",
+      "zh": "通过简短的交互式教程探索 Claude Code 功能"
+    },
+    {
+      "id": "slash.description:heapdump",
+      "kind": "slash.description",
+      "name": "heapdump",
+      "type": "local",
+      "start": 10877697,
+      "end": 10877728,
+      "en": "Dump the JS heap to ~/Desktop",
+      "zh": "把 JS 堆转存到 ~/Desktop"
+    },
+    {
+      "id": "slash.description:memory",
+      "kind": "slash.description",
+      "name": "memory",
+      "type": "local-jsx",
+      "start": 9960911,
+      "end": 9960937,
+      "en": "Edit Claude memory files",
+      "zh": "编辑 Claude 记忆文件"
+    },
+    {
+      "id": "slash.description:terminal-setup",
+      "kind": "slash.description",
+      "name": "terminal-setup",
+      "type": "local-jsx",
+      "start": 10673420,
+      "end": 10673482,
+      "en": "Enable Option+Enter key binding for newlines and visual bell",
+      "zh": "启用 Option+Enter 换行键绑定与视觉响铃"
+    },
+    {
+      "id": "slash.description:plan",
+      "kind": "slash.description",
+      "name": "plan",
+      "type": "local-jsx",
+      "start": 10721604,
+      "end": 10721655,
+      "en": "Enable plan mode or view the current session plan",
+      "zh": "启用计划模式，或查看当前会话的计划"
+    },
+    {
+      "id": "slash.description:exit",
+      "kind": "slash.description",
+      "name": "exit",
+      "type": "local-jsx",
+      "start": 10937429,
+      "end": 10937443,
+      "en": "Exit the CLI",
+      "zh": "退出 CLI"
+    },
+    {
+      "id": "slash.description:exit#2",
+      "kind": "slash.description",
+      "name": "exit",
+      "type": "local",
+      "start": 10937595,
+      "end": 10937609,
+      "en": "Exit the CLI",
+      "zh": "退出 CLI"
+    },
+    {
+      "id": "slash.description:export",
+      "kind": "slash.description",
+      "name": "export",
+      "type": "local-jsx",
+      "start": 10944633,
+      "end": 10944689,
+      "en": "Export the current conversation to a file or clipboard",
+      "zh": "把当前对话导出到文件或剪贴板"
+    },
+    {
+      "id": "slash.description:compact",
+      "kind": "slash.description",
+      "name": "compact",
+      "type": "local",
+      "start": 9530486,
+      "end": 9530542,
+      "en": "Free up context by summarizing the conversation so far",
+      "zh": "压缩历史对话，释放上下文空间"
+    },
+    {
+      "id": "slash.description:recap",
+      "kind": "slash.description",
+      "name": "recap",
+      "type": "local",
+      "start": 11011363,
+      "end": 11011402,
+      "en": "Generate a one-line session recap now",
+      "zh": "立即生成一句话的会话摘要"
+    },
+    {
+      "id": "slash.description:insights",
+      "kind": "slash.description",
+      "name": "insights",
+      "type": "prompt",
+      "start": 11104086,
+      "end": 11104141,
+      "en": "Generate a report analyzing your Claude Code sessions",
+      "zh": "生成一份分析你 Claude Code 会话的报告"
+    },
+    {
+      "id": "slash.description:insights#2",
+      "kind": "slash.description",
+      "name": "insights",
+      "type": "prompt",
+      "start": 11109856,
+      "end": 11109911,
+      "en": "Generate a report analyzing your Claude Code sessions",
+      "zh": "生成一份分析你 Claude Code 会话的报告"
+    },
+    {
+      "id": "slash.description:team-onboarding",
+      "kind": "slash.description",
+      "name": "team-onboarding",
+      "type": "prompt",
+      "start": 11026460,
+      "end": 11026525,
+      "en": "Help teammates ramp on Claude Code with a guide from your usage",
+      "zh": "根据你的使用情况生成上手指南，帮助队友熟悉 Claude Code"
+    },
+    {
+      "id": "slash.description:init#2",
+      "kind": "slash.description",
+      "name": "init",
+      "type": "prompt",
+      "start": 10004674,
+      "end": 10004735,
+      "en": "Initialize a new CLAUDE.md file with codebase documentation",
+      "zh": "根据代码库文档初始化一个新的 CLAUDE.md 文件"
+    },
+    {
+      "id": "slash.description:init",
+      "kind": "slash.description",
+      "name": "init",
+      "type": "prompt",
+      "start": 10004585,
+      "end": 10004673,
+      "en": "Initialize new CLAUDE.md file(s) and optional skills/hooks with codebase documentation",
+      "zh": "根据代码库文档初始化新的 CLAUDE.md 文件，可选一并生成 skill/hook"
+    },
+    {
+      "id": "slash.description:bridge-kick",
+      "kind": "slash.description",
+      "name": "bridge-kick",
+      "type": "local",
+      "start": 10887552,
+      "end": 10887610,
+      "en": "Inject bridge failure states for manual recovery testing",
+      "zh": "注入 bridge 故障状态，用于手动恢复测试"
+    },
+    {
+      "id": "slash.description:install",
+      "kind": "slash.description",
+      "name": "install",
+      "type": "local-jsx",
+      "start": 13127389,
+      "end": 13127423,
+      "en": "Install Claude Code native build",
+      "zh": "安装 Claude Code 原生版本"
+    },
+    {
+      "id": "slash.description:terminal-setup#2",
+      "kind": "slash.description",
+      "name": "terminal-setup",
+      "type": "local-jsx",
+      "start": 10673483,
+      "end": 10673529,
+      "en": "Install Shift+Enter key binding for newlines",
+      "zh": "安装 Shift+Enter 换行键绑定"
+    },
+    {
+      "id": "slash.description:install-slack-app",
+      "kind": "slash.description",
+      "name": "install-slack-app",
+      "type": "local",
+      "start": 10068055,
+      "end": 10068085,
+      "en": "Install the Claude Slack app",
+      "zh": "安装 Claude Slack App"
+    },
+    {
+      "id": "slash.description:tasks",
+      "kind": "slash.description",
+      "name": "tasks",
+      "type": "local-jsx",
+      "start": 10652173,
+      "end": 10652207,
+      "en": "List and manage background tasks",
+      "zh": "列出并管理后台任务"
+    },
+    {
+      "id": "slash.description:skills",
+      "kind": "slash.description",
+      "name": "skills",
+      "type": "local-jsx",
+      "start": 10591209,
+      "end": 10591232,
+      "en": "List available skills",
+      "zh": "列出可用的 skill"
+    },
+    {
+      "id": "slash.description:loops",
+      "kind": "slash.description",
+      "name": "loops",
+      "type": "local-jsx",
+      "start": 10783062,
+      "end": 10783119,
+      "en": "List, create, and delete recurring loops and stop-hooks",
+      "zh": "列出、创建、删除 loop 循环任务和 stop-hook"
+    },
+    {
+      "id": "slash.description:agents",
+      "kind": "slash.description",
+      "name": "agents",
+      "type": "local-jsx",
+      "start": 10868175,
+      "end": 10868204,
+      "en": "Manage agent configurations",
+      "zh": "管理 Agent 配置"
+    },
+    {
+      "id": "slash.description:permissions",
+      "kind": "slash.description",
+      "name": "permissions",
+      "type": "local-jsx",
+      "start": 10719598,
+      "end": 10719641,
+      "en": "Manage allow & deny tool permission rules",
+      "zh": "管理工具权限的 allow / deny 规则"
+    },
+    {
+      "id": "slash.description:plugin",
+      "kind": "slash.description",
+      "name": "plugin",
+      "type": "local-jsx",
+      "start": 10868533,
+      "end": 10868561,
+      "en": "Manage Claude Code plugins",
+      "zh": "管理 Claude Code 插件"
+    },
+    {
+      "id": "slash.description:ide",
+      "kind": "slash.description",
+      "name": "ide",
+      "type": "local-jsx",
+      "start": 9984335,
+      "end": 9984376,
+      "en": "Manage IDE integrations and show status",
+      "zh": "管理 IDE 集成、查看状态"
+    },
+    {
+      "id": "slash.description:mcp",
+      "kind": "slash.description",
+      "name": "mcp",
+      "type": "local-jsx",
+      "start": 10291346,
+      "end": 10291366,
+      "en": "Manage MCP servers",
+      "zh": "管理 MCP 服务器"
+    },
+    {
+      "id": "slash.description:autofix-pr",
+      "kind": "slash.description",
+      "name": "autofix-pr",
+      "type": "local-jsx",
+      "start": 9454583,
+      "end": 9454635,
+      "en": "Monitor and autofix any issues with the current PR",
+      "zh": "监控并自动修复当前 PR 的问题"
+    },
+    {
+      "id": "slash.description:config",
+      "kind": "slash.description",
+      "name": "config",
+      "type": "local-jsx",
+      "start": 9883313,
+      "end": 9883332,
+      "en": "Open config panel",
+      "zh": "打开配置面板"
+    },
+    {
+      "id": "slash.description:keybindings",
+      "kind": "slash.description",
+      "name": "keybindings",
+      "type": "local",
+      "start": 10016276,
+      "end": 10016328,
+      "en": "Open or create your keybindings configuration file",
+      "zh": "打开或创建你的快捷键配置文件"
+    },
+    {
+      "id": "slash.description:pro-trial-expired",
+      "kind": "slash.description",
+      "name": "pro-trial-expired",
+      "type": "local-jsx",
+      "start": 10959615,
+      "end": 10959676,
+      "en": "Options shown when the Pro plan Claude Code trial has ended",
+      "zh": "Pro 套餐 Claude Code 试用到期后显示的选项"
+    },
+    {
+      "id": "slash.description:stickers",
+      "kind": "slash.description",
+      "name": "stickers",
+      "type": "local",
+      "start": 10916921,
+      "end": 10916949,
+      "en": "Order Claude Code stickers",
+      "zh": "申请 Claude Code 贴纸"
+    },
+    {
+      "id": "slash.description:version",
+      "kind": "slash.description",
+      "name": "version",
+      "type": "local",
+      "start": 10889289,
+      "end": 10889365,
+      "en": "Print the version this session is running (not what autoupdate downloaded)",
+      "zh": "打印当前会话实际运行的版本（非 autoupdate 下载的版本）"
+    },
+    {
+      "id": "slash.description:setup-bedrock",
+      "kind": "slash.description",
+      "name": "setup-bedrock",
+      "type": "local-jsx",
+      "start": 10539040,
+      "end": 10539103,
+      "en": "Reconfigure AWS Bedrock authentication, region, or model pins",
+      "zh": "重新配置 AWS Bedrock 的鉴权、区域或模型版本"
+    },
+    {
+      "id": "slash.description:setup-vertex",
+      "kind": "slash.description",
+      "name": "setup-vertex",
+      "type": "local-jsx",
+      "start": 10540055,
+      "end": 10540132,
+      "en": "Reconfigure Google Vertex AI authentication, project, region, or model pins",
+      "zh": "重新配置 Google Vertex AI 的鉴权、项目、区域或模型版本"
+    },
+    {
+      "id": "slash.description:rename",
+      "kind": "slash.description",
+      "name": "rename",
+      "type": "local-jsx",
+      "start": 10384213,
+      "end": 10384246,
+      "en": "Rename the current conversation",
+      "zh": "重命名当前对话"
+    },
+    {
+      "id": "slash.description:rename#2",
+      "kind": "slash.description",
+      "name": "rename",
+      "type": "local",
+      "start": 10384439,
+      "end": 10384472,
+      "en": "Rename the current conversation",
+      "zh": "重命名当前对话"
+    },
+    {
+      "id": "slash.description:rewind",
+      "kind": "slash.description",
+      "name": "rewind",
+      "type": "local",
+      "start": 10872355,
+      "end": 10872413,
+      "en": "Restore the code and/or conversation to a previous point",
+      "zh": "把代码和/或对话回退到之前的某个状态"
+    },
+    {
+      "id": "slash.description:teleport",
+      "kind": "slash.description",
+      "name": "teleport",
+      "type": "local-jsx",
+      "start": 10660982,
+      "end": 10661027,
+      "en": "Resume a Claude Code session from claude.ai",
+      "zh": "从 claude.ai 恢复一段 Claude Code 会话"
+    },
+    {
+      "id": "slash.description:resume",
+      "kind": "slash.description",
+      "name": "resume",
+      "type": "local-jsx",
+      "start": 10538039,
+      "end": 10538071,
+      "en": "Resume a previous conversation",
+      "zh": "恢复一段之前的对话"
+    },
+    {
+      "id": "slash.description:review",
+      "kind": "slash.description",
+      "name": "review",
+      "type": "prompt",
+      "start": 10581913,
+      "end": 10581936,
+      "en": "Review a pull request",
+      "zh": "审查一个 PR"
+    },
+    {
+      "id": "slash.description:effort",
+      "kind": "slash.description",
+      "name": "effort",
+      "type": "local-jsx",
+      "start": 10972998,
+      "end": 10973032,
+      "en": "Set effort level for model usage",
+      "zh": "设置模型使用的 effort 等级"
+    },
+    {
+      "id": "slash.description:effort#2",
+      "kind": "slash.description",
+      "name": "effort",
+      "type": "local",
+      "start": 10973288,
+      "end": 10973322,
+      "en": "Set effort level for model usage",
+      "zh": "设置模型使用的 effort 等级"
+    },
+    {
+      "id": "slash.description:model",
+      "kind": "slash.description",
+      "name": "model",
+      "type": "local",
+      "start": 10950857,
+      "end": 10950891,
+      "en": "Set the AI model for Claude Code",
+      "zh": "设置 Claude Code 使用的 AI 模型"
+    },
+    {
+      "id": "slash.description:color",
+      "kind": "slash.description",
+      "name": "color",
+      "type": "local-jsx",
+      "start": 9507619,
+      "end": 9507662,
+      "en": "Set the prompt bar color for this session",
+      "zh": "设置本次会话输入框的颜色"
+    },
+    {
+      "id": "slash.description:color#2",
+      "kind": "slash.description",
+      "name": "color",
+      "type": "local",
+      "start": 9507863,
+      "end": 9507906,
+      "en": "Set the prompt bar color for this session",
+      "zh": "设置本次会话输入框的颜色"
+    },
+    {
+      "id": "slash.description:tui",
+      "kind": "slash.description",
+      "name": "tui",
+      "type": "local",
+      "start": 10692801,
+      "end": 10692854,
+      "en": "Set the terminal UI renderer (default | fullscreen)",
+      "zh": "设置终端 UI 渲染方式（default | fullscreen）"
+    },
+    {
+      "id": "slash.description:statusline",
+      "kind": "slash.description",
+      "name": "statusline",
+      "type": "prompt",
+      "start": 10963340,
+      "end": 10963377,
+      "en": "Set up Claude Code's status line UI",
+      "zh": "配置 Claude Code 的状态栏 UI"
+    },
+    {
+      "id": "slash.description:install-github-app",
+      "kind": "slash.description",
+      "name": "install-github-app",
+      "type": "local-jsx",
+      "start": 10067337,
+      "end": 10067384,
+      "en": "Set up Claude GitHub Actions for a repository",
+      "zh": "为仓库配置 Claude 的 GitHub Actions"
+    },
+    {
+      "id": "slash.description:web-setup",
+      "kind": "slash.description",
+      "name": "web-setup",
+      "type": "local-jsx",
+      "start": 11016032,
+      "end": 11016104,
+      "en": "Setup Claude Code on the web (requires connecting your GitHub account)",
+      "zh": "在网页端配置 Claude Code（需要关联你的 GitHub 账号）"
+    },
+    {
+      "id": "slash.description:passes#2",
+      "kind": "slash.description",
+      "name": "passes",
+      "type": "local-jsx",
+      "start": 10732299,
+      "end": 10732346,
+      "en": "Share a free week of Claude Code with friends",
+      "zh": "把免费一周 Claude Code 分享给朋友"
+    },
+    {
+      "id": "slash.description:passes",
+      "kind": "slash.description",
+      "name": "passes",
+      "type": "local-jsx",
+      "start": 10732224,
+      "end": 10732292,
+      "en": "Share a free week of Claude Code with friends and earn extra usage",
+      "zh": "把免费一周 Claude Code 分享给朋友，并赚取额外用量"
+    },
+    {
+      "id": "slash.description:status",
+      "kind": "slash.description",
+      "name": "status",
+      "type": "local-jsx",
+      "start": 10591545,
+      "end": 10591641,
+      "en": "Show Claude Code status including version, model, account, API connectivity, and tool statuses",
+      "zh": "显示 Claude Code 状态：版本、模型、账号、API 连通性、工具状态"
+    },
+    {
+      "id": "slash.description:context#2",
+      "kind": "slash.description",
+      "name": "context",
+      "type": "local",
+      "start": 9899791,
+      "end": 9899819,
+      "en": "Show current context usage",
+      "zh": "显示当前上下文使用情况"
+    },
+    {
+      "id": "slash.description:help",
+      "kind": "slash.description",
+      "name": "help",
+      "type": "local-jsx",
+      "start": 9973348,
+      "end": 9973382,
+      "en": "Show help and available commands",
+      "zh": "显示帮助和可用命令"
+    },
+    {
+      "id": "slash.description:rate-limit-options",
+      "kind": "slash.description",
+      "name": "rate-limit-options",
+      "type": "local-jsx",
+      "start": 10963138,
+      "end": 10963179,
+      "en": "Show options when rate limit is reached",
+      "zh": "触发限流时显示可选操作"
+    },
+    {
+      "id": "slash.description:mobile",
+      "kind": "slash.description",
+      "name": "mobile",
+      "type": "local-jsx",
+      "start": 10354484,
+      "end": 10354532,
+      "en": "Show QR code to download the Claude mobile app",
+      "zh": "显示下载 Claude 移动 App 的二维码"
+    },
+    {
+      "id": "slash.description:session",
+      "kind": "slash.description",
+      "name": "session",
+      "type": "local-jsx",
+      "start": 10584516,
+      "end": 10584553,
+      "en": "Show remote session URL and QR code",
+      "zh": "显示远程会话 URL 和二维码"
+    },
+    {
+      "id": "slash.description:usage",
+      "kind": "slash.description",
+      "name": "usage",
+      "type": "local-jsx",
+      "start": 10674466,
+      "end": 10674517,
+      "en": "Show session cost, plan usage, and activity stats",
+      "zh": "显示会话花费、套餐用量和活动统计"
+    },
+    {
+      "id": "slash.description:usage#2",
+      "kind": "slash.description",
+      "name": "usage",
+      "type": "local",
+      "start": 10674719,
+      "end": 10674776,
+      "en": "Show the total cost and duration of the current session",
+      "zh": "显示当前会话的总花费和时长"
+    },
+    {
+      "id": "slash.description:login#2",
+      "kind": "slash.description",
+      "name": "login",
+      "type": "local-jsx",
+      "start": 10016552,
+      "end": 10016589,
+      "en": "Sign in with your Anthropic account",
+      "zh": "用你的 Anthropic 账户登录"
+    },
+    {
+      "id": "slash.description:logout",
+      "kind": "slash.description",
+      "name": "logout",
+      "type": "local-jsx",
+      "start": 10016800,
+      "end": 10016838,
+      "en": "Sign out from your Anthropic account",
+      "zh": "登出 Anthropic 账号"
+    },
+    {
+      "id": "slash.description:fork",
+      "kind": "slash.description",
+      "name": "fork",
+      "type": "local-jsx",
+      "start": 11030418,
+      "end": 11030480,
+      "en": "Spawn a background agent that inherits the full conversation",
+      "zh": "启动一个继承完整对话的后台 Agent"
+    },
+    {
+      "id": "slash.description:clear",
+      "kind": "slash.description",
+      "name": "clear",
+      "type": "local",
+      "start": 9500308,
+      "end": 9500405,
+      "en": "Start a new session with empty context; previous session stays on disk (resumable with /resume)",
+      "zh": "启动一个空上下文的新会话；旧会话仍保留在本地（可用 /resume 恢复）"
+    },
+    {
+      "id": "slash.description:feedback",
+      "kind": "slash.description",
+      "name": "feedback",
+      "type": "local-jsx",
+      "start": 9485764,
+      "end": 9485799,
+      "en": "Submit feedback about Claude Code",
+      "zh": "提交对 Claude Code 的反馈"
+    },
+    {
+      "id": "slash.description:login",
+      "kind": "slash.description",
+      "name": "login",
+      "type": "local-jsx",
+      "start": 10016524,
+      "end": 10016551,
+      "en": "Switch Anthropic accounts",
+      "zh": "切换 Anthropic 账户"
+    },
+    {
+      "id": "slash.description:update",
+      "kind": "slash.description",
+      "name": "update",
+      "type": "local",
+      "start": 10939549,
+      "end": 10939604,
+      "en": "Switch to the latest version (conversation continues)",
+      "zh": "切换到最新版本（当前对话继续不中断）"
+    },
+    {
+      "id": "slash.description:toggle-memory",
+      "kind": "slash.description",
+      "name": "toggle-memory",
+      "type": "local",
+      "start": 9961553,
+      "end": 9961596,
+      "en": "Toggle automemory off/on for this session",
+      "zh": "为当前会话开关 automemory"
+    },
+    {
+      "id": "slash.description:brief",
+      "kind": "slash.description",
+      "name": "brief",
+      "type": "local-jsx",
+      "start": 10974604,
+      "end": 10974628,
+      "en": "Toggle brief-only mode",
+      "zh": "切换精简模式"
+    },
+    {
+      "id": "slash.description:focus",
+      "kind": "slash.description",
+      "name": "focus",
+      "type": "local-jsx",
+      "start": 10973517,
+      "end": 10973600,
+      "en": "Toggle focus view (show only your prompt, a tool summary, and the final response)",
+      "zh": "切换聚焦视图（只显示你的提问、工具调用摘要、最终回复）"
+    },
+    {
+      "id": "slash.description:voice",
+      "kind": "slash.description",
+      "name": "voice",
+      "type": "local",
+      "start": 11010648,
+      "end": 11010667,
+      "en": "Toggle voice mode",
+      "zh": "切换语音模式"
+    },
+    {
+      "id": "slash.description:upgrade",
+      "kind": "slash.description",
+      "name": "upgrade",
+      "type": "local-jsx",
+      "start": 10957949,
+      "end": 10958002,
+      "en": "Upgrade to Max for higher rate limits and more Opus",
+      "zh": "升级到 Max 套餐，获得更高限额和更多 Opus 额度"
+    },
+    {
+      "id": "slash.description:privacy-settings",
+      "kind": "slash.description",
+      "name": "privacy-settings",
+      "type": "local-jsx",
+      "start": 10743594,
+      "end": 10743633,
+      "en": "View and update your privacy settings",
+      "zh": "查看和修改隐私设置"
+    },
+    {
+      "id": "slash.description:hooks",
+      "kind": "slash.description",
+      "name": "hooks",
+      "type": "local-jsx",
+      "start": 10773165,
+      "end": 10773207,
+      "en": "View hook configurations for tool events",
+      "zh": "查看工具事件的 hook 配置"
+    },
+    {
+      "id": "slash.description:release-notes",
+      "kind": "slash.description",
+      "name": "release-notes",
+      "type": "local-jsx",
+      "start": 10379937,
+      "end": 10379957,
+      "en": "View release notes",
+      "zh": "查看发版日志"
+    },
+    {
+      "id": "slash.description:diff",
+      "kind": "slash.description",
+      "name": "diff",
+      "type": "local-jsx",
+      "start": 9916784,
+      "end": 9916829,
+      "en": "View uncommitted changes and per-turn diffs",
+      "zh": "查看未提交的改动以及每一轮的 diff"
+    },
+    {
+      "id": "slash.description:context",
+      "kind": "slash.description",
+      "name": "context",
+      "type": "local-jsx",
+      "start": 9899542,
+      "end": 9899593,
+      "en": "Visualize current context usage as a colored grid",
+      "zh": "以彩色网格形式可视化当前上下文使用情况"
+    },
+    {
+      "id": "subcmd.description:add",
+      "kind": "subcmd.description",
+      "command": "add <name> <commandOrUrl> [args...]",
+      "start": 12954025,
+      "end": 12954524,
+      "en": "`Add an MCP server to Claude Code.\n\nExamples:\n  # Add HTTP server:\n  claude mcp add --transport http sentry https://mcp.sentry.dev/mcp\n\n  # Add HTTP server with headers:\n  claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header \"Authorization: Bearer ...\"\n\n  # Add stdio server with environment variables:\n  claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server\n\n  # Add stdio server with subprocess flags:\n  claude mcp add my-server -- my-command --some-flag arg1`",
+      "zh": "`向 Claude Code 添加一个 MCP 服务器。\n\n示例：\n  # 添加 HTTP 服务器：\n  claude mcp add --transport http sentry https://mcp.sentry.dev/mcp\n\n  # 添加带 header 的 HTTP 服务器：\n  claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header \"Authorization: Bearer ...\"\n\n  # 添加带环境变量的 stdio 服务器：\n  claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server\n\n  # 添加带子进程参数的 stdio 服务器：\n  claude mcp add my-server -- my-command --some-flag arg1`",
+      "isTemplate": true
+    },
+    {
+      "id": "subcmd.description:add#2",
+      "kind": "subcmd.description",
+      "command": "add <source>",
+      "start": 13224978,
+      "end": 13225030,
+      "en": "Add a marketplace from a URL, path, or GitHub repo",
+      "zh": "从 URL、路径或 GitHub 仓库添加一个市场"
+    },
+    {
+      "id": "subcmd.description:add-json",
+      "kind": "subcmd.description",
+      "command": "add-json <name> <json>",
+      "start": 13220933,
+      "end": 13220986,
+      "en": "Add an MCP server (stdio or SSE) with a JSON string",
+      "zh": "以 JSON 字符串添加 MCP 服务器（stdio 或 SSE）"
+    },
+    {
+      "id": "subcmd.description:login",
+      "kind": "subcmd.description",
+      "command": "login",
+      "start": 12959994,
+      "end": 12960233,
+      "en": "Cache an IdP id_token so XAA-enabled MCP servers authenticate silently. Default: run the OIDC browser login. With --id-token: write a pre-obtained JWT directly (used by conformance/e2e tests where the mock IdP does not serve /authorize).",
+      "zh": "缓存一个 IdP id_token，使启用了 XAA 的 MCP 服务器可静默鉴权。默认走 OIDC 浏览器登录。加 --id-token 时直接写入预先取得的 JWT（用于 mock IdP 不提供 /authorize 的一致性/e2e 测试）。"
+    },
+    {
+      "id": "subcmd.description:update#3",
+      "kind": "subcmd.description",
+      "command": "update",
+      "start": 13231138,
+      "end": 13231182,
+      "en": "Check for updates and install if available",
+      "zh": "检查更新，有可用更新时安装"
+    },
+    {
+      "id": "subcmd.description:doctor",
+      "kind": "subcmd.description",
+      "command": "doctor",
+      "start": 13230692,
+      "end": 13230900,
+      "en": "Check the health of your Claude Code auto-updater. Note: The workspace trust dialog is skipped and stdio servers from .mcp.json are spawned for health checks. Only use this command in directories you trust.",
+      "zh": "检查 Claude Code 自动更新器的健康状况。注意：会跳过工作区信任对话框，并会启动 .mcp.json 里的 stdio 服务器做健康检查，请仅在信任的目录使用。"
+    },
+    {
+      "id": "subcmd.description:clear",
+      "kind": "subcmd.description",
+      "command": "clear",
+      "start": 12961876,
+      "end": 12961929,
+      "en": "Clear the IdP connection config and cached id_token",
+      "zh": "清空 IdP 连接配置和缓存的 id_token"
+    },
+    {
+      "id": "subcmd.description:mcp",
+      "kind": "subcmd.description",
+      "command": "mcp",
+      "start": 13219210,
+      "end": 13219244,
+      "en": "Configure and manage MCP servers",
+      "zh": "配置与管理 MCP 服务器"
+    },
+    {
+      "id": "subcmd.description:setup",
+      "kind": "subcmd.description",
+      "command": "setup",
+      "start": 12958369,
+      "end": 12958444,
+      "en": "Configure the IdP connection (one-time setup for all XAA-enabled servers)",
+      "zh": "配置 IdP 连接（所有启用 XAA 的服务器一次性配置）"
+    },
+    {
+      "id": "subcmd.description:remote-control",
+      "kind": "subcmd.description",
+      "command": "remote-control",
+      "start": 13230463,
+      "end": 13230542,
+      "en": "Connect your local environment for remote-control sessions via claude.ai/code",
+      "zh": "把本地环境接入 claude.ai/code 的远程控制会话"
+    },
+    {
+      "id": "subcmd.description:tag",
+      "kind": "subcmd.description",
+      "command": "tag [path]",
+      "start": 13223751,
+      "end": 13223880,
+      "en": "Create a {name}--v{version} git tag for a plugin release, validating that plugin.json and any enclosing marketplace entry agree",
+      "zh": "为插件发版创建 {name}--v{version} 格式的 git tag，同时校验 plugin.json 与外层 marketplace 条目一致"
+    },
+    {
+      "id": "subcmd.description:disable",
+      "kind": "subcmd.description",
+      "command": "disable [plugin]",
+      "start": 13227882,
+      "end": 13227909,
+      "en": "Disable an enabled plugin",
+      "zh": "禁用一个已启用的插件"
+    },
+    {
+      "id": "subcmd.description:enable",
+      "kind": "subcmd.description",
+      "command": "enable <plugin>",
+      "start": 13227489,
+      "end": 13227515,
+      "en": "Enable a disabled plugin",
+      "zh": "启用一个已禁用的插件"
+    },
+    {
+      "id": "subcmd.description:critique",
+      "kind": "subcmd.description",
+      "command": "critique",
+      "start": 13230068,
+      "end": 13230116,
+      "en": "Get AI feedback on your custom auto mode rules",
+      "zh": "让 AI 点评你的自动模式自定义规则"
+    },
+    {
+      "id": "subcmd.description:get",
+      "kind": "subcmd.description",
+      "command": "get <name>",
+      "start": 13220501,
+      "end": 13220691,
+      "en": "Get details about an MCP server. Note: The workspace trust dialog is skipped and stdio servers from .mcp.json are spawned for health checks. Only use this command in directories you trust.",
+      "zh": "查看某个 MCP 服务器的详细信息。注意：会跳过工作区信任对话框，并会启动 .mcp.json 里的 stdio 服务器做健康检查，请仅在信任的目录使用。"
+    },
+    {
+      "id": "subcmd.description:add-from-claude-desktop",
+      "kind": "subcmd.description",
+      "command": "add-from-claude-desktop",
+      "start": 13221437,
+      "end": 13221496,
+      "en": "Import MCP servers from Claude Desktop (Mac and WSL only)",
+      "zh": "从 Claude Desktop 导入 MCP 服务器（仅 Mac 和 WSL 支持）"
+    },
+    {
+      "id": "subcmd.description:auto-mode",
+      "kind": "subcmd.description",
+      "command": "auto-mode",
+      "start": 13229327,
+      "end": 13229371,
+      "en": "Inspect auto mode classifier configuration",
+      "zh": "查看自动模式分类器配置"
+    },
+    {
+      "id": "subcmd.description:install",
+      "kind": "subcmd.description",
+      "command": "install <plugin>",
+      "start": 13226540,
+      "end": 13226636,
+      "en": "Install a plugin from available marketplaces (use plugin@marketplace for specific marketplace)",
+      "zh": "从可用市场安装插件（指定市场时用 plugin@marketplace）"
+    },
+    {
+      "id": "subcmd.description:install#2",
+      "kind": "subcmd.description",
+      "command": "install [target]",
+      "start": 13231317,
+      "end": 13231422,
+      "en": "Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)",
+      "zh": "安装 Claude Code 原生版本。用 [target] 指定版本（stable、latest 或具体版本号）"
+    },
+    {
+      "id": "subcmd.description:list#3",
+      "kind": "subcmd.description",
+      "command": "list",
+      "start": 13225528,
+      "end": 13225562,
+      "en": "List all configured marketplaces",
+      "zh": "列出所有已配置的市场"
+    },
+    {
+      "id": "subcmd.description:agents",
+      "kind": "subcmd.description",
+      "command": "agents",
+      "start": 13228923,
+      "end": 13228947,
+      "en": "List configured agents",
+      "zh": "列出已配置的 Agent"
+    },
+    {
+      "id": "subcmd.description:list",
+      "kind": "subcmd.description",
+      "command": "list",
+      "start": 13220087,
+      "end": 13220273,
+      "en": "List configured MCP servers. Note: The workspace trust dialog is skipped and stdio servers from .mcp.json are spawned for health checks. Only use this command in directories you trust.",
+      "zh": "列出已配置的 MCP 服务器。注意：会跳过工作区信任对话框，并会启动 .mcp.json 里的 stdio 服务器做健康检查，请仅在信任的目录使用。"
+    },
+    {
+      "id": "subcmd.description:list#2",
+      "kind": "subcmd.description",
+      "command": "list",
+      "start": 13224469,
+      "end": 13224493,
+      "en": "List installed plugins",
+      "zh": "列出已安装的插件"
+    },
+    {
+      "id": "subcmd.description:logout",
+      "kind": "subcmd.description",
+      "command": "logout",
+      "start": 13223000,
+      "end": 13223037,
+      "en": "Log out from your Anthropic account",
+      "zh": "登出 Anthropic 账号"
+    },
+    {
+      "id": "subcmd.description:auth",
+      "kind": "subcmd.description",
+      "command": "auth",
+      "start": 13222082,
+      "end": 13222105,
+      "en": "Manage authentication",
+      "zh": "管理鉴权"
+    },
+    {
+      "id": "subcmd.description:marketplace",
+      "kind": "subcmd.description",
+      "command": "marketplace",
+      "start": 13224883,
+      "end": 13224916,
+      "en": "Manage Claude Code marketplaces",
+      "zh": "管理 Claude Code 市场"
+    },
+    {
+      "id": "subcmd.description:plugin",
+      "kind": "subcmd.description",
+      "command": "plugin",
+      "start": 13223363,
+      "end": 13223391,
+      "en": "Manage Claude Code plugins",
+      "zh": "管理 Claude Code 插件"
+    },
+    {
+      "id": "subcmd.description:xaa",
+      "kind": "subcmd.description",
+      "command": "xaa",
+      "start": 12958295,
+      "end": 12958336,
+      "en": "Manage the XAA (SEP-990) IdP connection",
+      "zh": "管理 XAA（SEP-990）IdP 连接"
+    },
+    {
+      "id": "subcmd.description:defaults",
+      "kind": "subcmd.description",
+      "command": "defaults",
+      "start": 13229407,
+      "end": 13229479,
+      "en": "Print the default auto mode environment, allow, and deny rules as JSON",
+      "zh": "以 JSON 打印自动模式的默认环境、allow 和 deny 规则"
+    },
+    {
+      "id": "subcmd.description:config",
+      "kind": "subcmd.description",
+      "command": "config",
+      "start": 13229728,
+      "end": 13229819,
+      "en": "Print the effective auto mode config as JSON: your settings where set, defaults otherwise",
+      "zh": "以 JSON 打印当前生效的自动模式配置：设置过的用你的，没设置的用默认"
+    },
+    {
+      "id": "subcmd.description:remove#2",
+      "kind": "subcmd.description",
+      "command": "remove <name>",
+      "start": 13225879,
+      "end": 13225912,
+      "en": "Remove a configured marketplace",
+      "zh": "移除一个已配置的市场"
+    },
+    {
+      "id": "subcmd.description:remove",
+      "kind": "subcmd.description",
+      "command": "remove <name>",
+      "start": 13219678,
+      "end": 13219700,
+      "en": "Remove an MCP server",
+      "zh": "移除一个 MCP 服务器"
+    },
+    {
+      "id": "subcmd.description:reset-project-choices",
+      "kind": "subcmd.description",
+      "command": "reset-project-choices",
+      "start": 13221742,
+      "end": 13221830,
+      "en": "Reset all approved and rejected project-scoped (.mcp.json) servers within this project",
+      "zh": "重置本项目内所有已批准/已拒绝的项目级（.mcp.json）服务器"
+    },
+    {
+      "id": "subcmd.description:setup-token",
+      "kind": "subcmd.description",
+      "command": "setup-token",
+      "start": 13228625,
+      "end": 13228698,
+      "en": "Set up a long-lived authentication token (requires Claude subscription)",
+      "zh": "配置一个长期有效的鉴权 token（需要 Claude 订阅）"
+    },
+    {
+      "id": "subcmd.description:status",
+      "kind": "subcmd.description",
+      "command": "status",
+      "start": 13222656,
+      "end": 13222684,
+      "en": "Show authentication status",
+      "zh": "显示鉴权状态"
+    },
+    {
+      "id": "subcmd.description:show",
+      "kind": "subcmd.description",
+      "command": "show",
+      "start": 12961270,
+      "end": 12961310,
+      "en": "Show the current IdP connection config",
+      "zh": "显示当前 IdP 连接配置"
+    },
+    {
+      "id": "subcmd.description:login#2",
+      "kind": "subcmd.description",
+      "command": "login",
+      "start": 13222157,
+      "end": 13222192,
+      "en": "Sign in to your Anthropic account",
+      "zh": "登录 Anthropic 账号"
+    },
+    {
+      "id": "subcmd.description:serve",
+      "kind": "subcmd.description",
+      "command": "serve",
+      "start": 13219325,
+      "end": 13219359,
+      "en": "Start the Claude Code MCP server",
+      "zh": "启动 Claude Code 的 MCP 服务器"
+    },
+    {
+      "id": "subcmd.description:uninstall",
+      "kind": "subcmd.description",
+      "command": "uninstall <plugin>",
+      "start": 13227009,
+      "end": 13227040,
+      "en": "Uninstall an installed plugin",
+      "zh": "卸载一个已安装的插件"
+    },
+    {
+      "id": "subcmd.description:update#2",
+      "kind": "subcmd.description",
+      "command": "update <plugin>",
+      "start": 13228310,
+      "end": 13228377,
+      "en": "Update a plugin to the latest version (restart required to apply)",
+      "zh": "把插件升级到最新版（需重启生效）"
+    },
+    {
+      "id": "subcmd.description:update",
+      "kind": "subcmd.description",
+      "command": "update [name]",
+      "start": 13226189,
+      "end": 13226265,
+      "en": "Update marketplace(s) from their source - updates all if no name specified",
+      "zh": "从来源更新市场 —— 未指定名称时更新全部"
+    },
+    {
+      "id": "subcmd.description:validate",
+      "kind": "subcmd.description",
+      "command": "validate <path>",
+      "start": 13223453,
+      "end": 13223496,
+      "en": "Validate a plugin or marketplace manifest",
+      "zh": "校验一个插件或市场的 manifest 文件"
+    }
+  ]
+}

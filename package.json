@@ -1,0 +1,38 @@
+{
+  "name": "claude-zh",
+  "version": "0.1.0",
+  "description": "把 Claude Code CLI 的命令描述汉化（仅 macOS arm64）",
+  "keywords": ["claude", "claude-code", "cli", "i18n", "中文化", "汉化"],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/lixinqi0421-lab/claude-zh-tool#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lixinqi0421-lab/claude-zh-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lixinqi0421-lab/claude-zh-tool/issues"
+  },
+  "bin": {
+    "claude-zh": "bin/claude-zh"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "translations/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "dependencies": {
+    "@babel/parser": "^7.29.2",
+    "@babel/traverse": "^7.29.0"
+  },
+  "scripts": {
+    "doctor": "node bin/claude-zh doctor"
+  }
+}

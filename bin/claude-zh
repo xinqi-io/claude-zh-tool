@@ -1,0 +1,370 @@
+#!/usr/bin/env node
+// claude-zh — Claude Code CLI 中文化工具
+// 子命令：patch | unpatch | status | scan | doctor
+
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const { execFileSync, spawnSync } = require('child_process');
+
+const HOME = os.homedir();
+const STATE_DIR = path.join(HOME, '.claude-zh');
+const STATE_FILE = path.join(STATE_DIR, 'state.json');
+const PKG_ROOT = path.resolve(__dirname, '..');
+const TRANSLATIONS_DIR = path.join(PKG_ROOT, 'translations');
+
+const { extract, findClaudeBinary } = require(path.join(PKG_ROOT, 'lib/extract'));
+const { scanBundle } = require(path.join(PKG_ROOT, 'lib/scan'));
+const { applyTranslations } = require(path.join(PKG_ROOT, 'lib/apply'));
+const { splice } = require(path.join(PKG_ROOT, 'lib/splice'));
+
+// ----- 工具函数 -----
+function ensureStateDir() { fs.mkdirSync(STATE_DIR, { recursive: true }); }
+function loadState() {
+    if (!fs.existsSync(STATE_FILE)) return {};
+    try { return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); } catch { return {}; }
+}
+function saveState(s) {
+    ensureStateDir();
+    fs.writeFileSync(STATE_FILE, JSON.stringify(s, null, 2));
+}
+function getClaudeVersion(binPath) {
+    const r = spawnSync(binPath, ['--version'], { encoding: 'utf8', timeout: 10000 });
+    if (r.status !== 0) return null;
+    const m = r.stdout.match(/(\d+\.\d+\.\d+)/);
+    return m ? m[1] : r.stdout.trim();
+}
+function color(c, s) {
+    const codes = { red: 31, green: 32, yellow: 33, blue: 34, gray: 90, bold: 1 };
+    if (!process.stdout.isTTY) return s;
+    return `\x1b[${codes[c]}m${s}\x1b[0m`;
+}
+const ok = s => console.log(color('green', '✓ ') + s);
+const warn = s => console.log(color('yellow', '⚠ ') + s);
+const err = s => console.error(color('red', '✗ ') + s);
+const info = s => console.log(color('gray', '› ') + s);
+const step = s => console.log(color('bold', s));
+
+// ----- 子命令 -----
+function cmdDoctor() {
+    step('环境自检');
+    let allOk = true;
+
+    // node 版本
+    const nodeV = process.versions.node;
+    if (parseInt(nodeV) >= 18) ok(`Node.js ${nodeV}`);
+    else { err(`Node.js ${nodeV} 太旧，需 >= 18`); allOk = false; }
+
+    // 系统
+    if (process.platform === 'darwin' && process.arch === 'arm64') {
+        ok(`平台: macOS ${os.release()} arm64`);
+    } else {
+        err(`仅支持 macOS arm64，当前 ${process.platform}/${process.arch}`);
+        allOk = false;
+    }
+
+    // codesign 可用
+    try {
+        execFileSync('which', ['codesign'], { stdio: 'ignore' });
+        ok('codesign 可用');
+    } catch {
+        err('codesign 不可用，请装 Xcode Command Line Tools (xcode-select --install)');
+        allOk = false;
+    }
+
+    // otool 可用
+    try {
+        execFileSync('which', ['otool'], { stdio: 'ignore' });
+        ok('otool 可用');
+    } catch {
+        err('otool 不可用，请装 Xcode Command Line Tools');
+        allOk = false;
+    }
+
+    // claude 可用
+    let binPath;
+    try {
+        binPath = findClaudeBinary(null, { preferCurrent: true });
+        ok(`claude 二进制: ${binPath}`);
+    } catch (e) {
+        err(`找不到 claude: ${e.message}`);
+        allOk = false;
+    }
+
+    if (binPath) {
+        const v = getClaudeVersion(binPath);
+        if (v) ok(`claude 版本: ${v}`);
+        else { err('claude --version 失败'); allOk = false; }
+
+        // 备份
+        const backup = binPath + '.en.bak';
+        if (fs.existsSync(backup)) {
+            const sz = fs.statSync(backup).size;
+            ok(`备份存在: ${path.basename(backup)} (${(sz/1024/1024).toFixed(1)} MB)`);
+        } else {
+            info(`暂无备份 (.en.bak)，首次 install 时会自动建`);
+        }
+
+        // 写权限
+        try {
+            fs.accessSync(binPath, fs.constants.W_OK);
+            ok('对二进制有写权限');
+        } catch {
+            err(`对 ${binPath} 没有写权限`);
+            allOk = false;
+        }
+    }
+
+    // 字典
+    const trs = fs.readdirSync(TRANSLATIONS_DIR).filter(f => f.endsWith('.json'));
+    ok(`内置翻译版本: ${trs.length} 个 (${trs.join(', ')})`);
+
+    console.log();
+    if (allOk) ok('全部就绪');
+    else { err('有问题需要解决'); process.exit(1); }
+}
+
+function pickTranslation(claudeVersion) {
+    const exact = path.join(TRANSLATIONS_DIR, `${claudeVersion}.json`);
+    if (fs.existsSync(exact)) return { path: exact, exact: true };
+    // fallback: 取最高版本
+    const all = fs.readdirSync(TRANSLATIONS_DIR)
+        .filter(f => /^\d+\.\d+\.\d+\.json$/.test(f))
+        .sort((a, b) => {
+            const pa = a.replace('.json', '').split('.').map(Number);
+            const pb = b.replace('.json', '').split('.').map(Number);
+            for (let i = 0; i < 3; i++) if (pa[i] !== pb[i]) return pb[i] - pa[i];
+            return 0;
+        });
+    if (all.length === 0) throw new Error(`找不到任何翻译字典`);
+    return { path: path.join(TRANSLATIONS_DIR, all[0]), exact: false, fallbackVersion: all[0].replace('.json', '') };
+}
+
+function cmdPatch(opts = {}) {
+    step('打汉化补丁');
+
+    // 1. 找 claude
+    const binPath = findClaudeBinary(null, { preferCurrent: true });
+    info(`目标二进制: ${binPath}`);
+    const claudeV = getClaudeVersion(binPath);
+    info(`claude 版本: ${claudeV}`);
+
+    // 2. 抽 bundle（自动用 .en.bak 如果有）
+    info('抽取 JS bundle…');
+    const r = extract();
+    const bundleStateDir = path.join(STATE_DIR, 'cache');
+    fs.mkdirSync(bundleStateDir, { recursive: true });
+    const bundlePath = path.join(bundleStateDir, 'bundle.js');
+    fs.writeFileSync(bundlePath, r.bundleSource);
+    ok(`bundle: ${r.bundleSource.length} bytes, ${r.bundles.length} 份副本`);
+
+    // 3. 选字典
+    const tr = pickTranslation(claudeV);
+    if (tr.exact) ok(`翻译字典: ${path.basename(tr.path)} (精确匹配)`);
+    else warn(`无 ${claudeV} 字典，回退用 ${tr.fallbackVersion}`);
+
+    // 4. scan + 自动迁移老译文
+    info('AST 扫描 + 迁移译文…');
+    const scanResult = scanBundle(bundlePath, JSON.parse(fs.readFileSync(tr.path, 'utf8')).entries || []);
+    const entriesPath = path.join(bundleStateDir, 'entries.json');
+    fs.writeFileSync(entriesPath, JSON.stringify(scanResult, null, 2));
+    const total = scanResult.entries.length;
+    const translated = scanResult.entries.filter(e => e.zh).length;
+    ok(`抽出 ${total} 条命令描述，已翻 ${translated} 条`);
+    if (translated < total) {
+        const missing = total - translated;
+        warn(`${missing} 条尚无翻译，会保留英文`);
+    }
+
+    // 5. apply 替换
+    info('AST 替换…');
+    const zhBundle = path.join(bundleStateDir, 'bundle.zh.js');
+    const { stats } = applyTranslations(bundlePath, entriesPath, zhBundle);
+    if (stats.skippedDrift > 0) {
+        warn(`位置漂移 ${stats.skippedDrift} 条已跳过（应该不会出现，请联系维护者）`);
+    }
+    ok(`应用 ${stats.applied} 处替换`);
+
+    // 6. splice + 签名
+    info('splice 回二进制 + 重新签名…');
+    splice(zhBundle, { binPath });
+    ok('splice 完成');
+
+    // 7. 保存状态
+    const state = loadState();
+    state.patched = true;
+    state.claudeVersion = claudeV;
+    state.translationFile = path.basename(tr.path);
+    state.translatedCount = translated;
+    state.totalCount = total;
+    state.patchedAt = new Date().toISOString();
+    state.binPath = binPath;
+    saveState(state);
+
+    console.log();
+    ok('补丁应用成功！');
+    info('新开终端跑 `claude` 验证。要回滚用 `claude-zh unpatch`。');
+}
+
+function cmdScan(opts = {}) {
+    step('扫描 claude bundle 生成翻译模板');
+
+    // 1. 找 claude & 版本
+    const binPath = findClaudeBinary(null, { preferCurrent: true });
+    info(`目标二进制: ${binPath}`);
+    const claudeV = getClaudeVersion(binPath);
+    if (!claudeV) { err('无法获取 claude 版本'); process.exit(1); }
+    info(`claude 版本: ${claudeV}`);
+
+    const outPath = path.join(TRANSLATIONS_DIR, `${claudeV}.json`);
+    if (fs.existsSync(outPath) && !opts.force) {
+        err(`${path.basename(outPath)} 已存在。覆盖请加 --force（会保留已有 zh 字段迁移到新扫描结果）`);
+        process.exit(1);
+    }
+
+    // 2. 抽 bundle
+    info('抽取 JS bundle…');
+    const r = extract();
+    const bundleStateDir = path.join(STATE_DIR, 'cache');
+    fs.mkdirSync(bundleStateDir, { recursive: true });
+    const bundlePath = path.join(bundleStateDir, 'bundle.js');
+    fs.writeFileSync(bundlePath, r.bundleSource);
+    ok(`bundle: ${r.bundleSource.length} bytes`);
+
+    // 3. 读旧字典（优先同版本，否则取最高版本）做翻译迁移
+    let oldEntries = [];
+    let oldSource = null;
+    if (fs.existsSync(outPath)) {
+        oldEntries = JSON.parse(fs.readFileSync(outPath, 'utf8')).entries || [];
+        oldSource = path.basename(outPath);
+    } else {
+        try {
+            const pick = pickTranslation(claudeV);
+            oldEntries = JSON.parse(fs.readFileSync(pick.path, 'utf8')).entries || [];
+            oldSource = path.basename(pick.path);
+        } catch { /* 首次跑、仓库无任何字典 */ }
+    }
+    if (oldSource) info(`迁移老字典: ${oldSource} (${oldEntries.length} 条)`);
+    else info('无老字典，从零生成');
+
+    // 4. scan
+    info('AST 扫描…');
+    const scanResult = scanBundle(bundlePath, oldEntries);
+
+    // 5. 写入 translations/<version>.json
+    fs.writeFileSync(outPath, JSON.stringify(scanResult, null, 2));
+    const total = scanResult.entries.length;
+    const translated = scanResult.entries.filter(e => e.zh).length;
+    ok(`写入 ${path.relative(process.cwd(), outPath)}`);
+
+    // 6. 分类统计
+    const byKind = {};
+    for (const e of scanResult.entries) byKind[e.kind] = (byKind[e.kind] || 0) + 1;
+    console.log();
+    info(`共 ${total} 条（已翻 ${translated}，待翻 ${total - translated}）：`);
+    for (const [k, v] of Object.entries(byKind).sort()) {
+        console.log(`    ${k.padEnd(28)} ${v}`);
+    }
+    console.log();
+    ok('扫描完成。补翻译请改每条的 zh 字段，不要动 start/end/en。');
+}
+
+function cmdStatus() {
+    step('当前状态');
+    let binPath;
+    try { binPath = findClaudeBinary(null, { preferCurrent: true }); }
+    catch (e) { err(e.message); process.exit(1); }
+    info(`claude: ${binPath}`);
+
+    const v = getClaudeVersion(binPath);
+    info(`版本: ${v || '(无法获取)'}`);
+
+    const backup = binPath + '.en.bak';
+    if (fs.existsSync(backup)) ok(`备份: ${path.basename(backup)}`);
+    else info('备份: 无');
+
+    const state = loadState();
+    // 兼容旧 state：老版本用 installed/installedAt/uninstalledAt
+    const isPatched = state.patched ?? state.installed;
+    const patchedAt = state.patchedAt ?? state.installedAt;
+    if (!isPatched) {
+        warn('未打汉化补丁');
+        return;
+    }
+    ok(`已打汉化补丁 (于 ${patchedAt})`);
+    info(`字典: ${state.translationFile}`);
+    info(`已翻 ${state.translatedCount}/${state.totalCount} 条`);
+
+    if (state.claudeVersion && v && state.claudeVersion !== v) {
+        warn(`claude 已升级到 ${v}（补丁基于 ${state.claudeVersion}），请重跑 \`claude-zh patch\``);
+    }
+}
+
+function cmdUnpatch() {
+    step('撤销汉化补丁，回滚英文版');
+    const binPath = findClaudeBinary(null, { preferCurrent: true });
+    const backup = binPath + '.en.bak';
+    if (!fs.existsSync(backup)) {
+        err(`找不到备份 ${backup}，无法回滚`);
+        process.exit(1);
+    }
+    fs.copyFileSync(backup, binPath);
+    ok(`已从 ${path.basename(backup)} 还原`);
+    if (process.platform === 'darwin') {
+        const r = spawnSync('codesign', ['--force', '--sign', '-', binPath], { encoding: 'utf8' });
+        if (r.status !== 0) err(`codesign 警告: ${r.stderr}`);
+        else ok('已重新签名');
+    }
+    const v = getClaudeVersion(binPath);
+    ok(`烟测: ${v}`);
+    const state = loadState();
+    state.patched = false;
+    state.installed = false; // 兼容旧字段
+    state.unpatchedAt = new Date().toISOString();
+    saveState(state);
+}
+
+// ----- 入口 -----
+const HELP = `claude-zh — Claude Code CLI 中文化工具
+
+用法:
+  claude-zh <command>
+
+命令:
+  patch           打汉化补丁到 claude 二进制（自动备份、splice、签名）
+  unpatch         撤销补丁，从 .en.bak 回滚英文版
+  status          查看当前状态
+  scan [--force]  扫描当前 claude 生成 translations/<version>.json 模板
+                  （有老字典会自动迁移中文，缺失 zh 字段留空待翻）
+  doctor          环境自检
+
+claude 升级后重跑 \`claude-zh patch\` 即可（工具会从 .en.bak 抽净英文重新打补丁）。
+
+详见: https://github.com/lixinqi0421-lab/claude-zh-tool
+`;
+
+const cmd = process.argv[2];
+const cmdArgs = process.argv.slice(3);
+const handlers = {
+    patch: cmdPatch,
+    unpatch: cmdUnpatch,
+    status: cmdStatus,
+    scan: () => cmdScan({ force: cmdArgs.includes('--force') || cmdArgs.includes('-f') }),
+    doctor: cmdDoctor,
+    help: () => console.log(HELP),
+    '--help': () => console.log(HELP),
+    '-h': () => console.log(HELP),
+};
+
+if (!cmd || !handlers[cmd]) {
+    console.log(HELP);
+    process.exit(cmd ? 1 : 0);
+}
+
+try {
+    handlers[cmd]();
+} catch (e) {
+    err(e.message || String(e));
+    if (process.env.CLAUDE_ZH_DEBUG) console.error(e.stack);
+    process.exit(1);
+}
